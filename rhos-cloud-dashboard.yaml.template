@@ -130,7 +130,7 @@
       ],
       "targets": [
         {
-          "expr": "sa_collectd_last_metric_for_host_status",
+          "expr": "collectd_last_metric_for_host_status",
           "format": "time_series",
           "instant": false,
           "legendFormat": "{{exported_instance}}",
@@ -196,7 +196,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (exported_instance) (sa_collectd_cpu_percent{type!=\"idle\",exported_instance=~\"controller.*\"}) / count by (exported_instance) (sum by (cpu,exported_instance) (sa_collectd_cpu_percent{type!=\"idle\",exported_instance=~\"controller.*\"}))",
+              "expr": "sum by (exported_instance) (collectd_cpu_percent{type!=\"idle\",exported_instance=~\"controller.*\"}) / count by (exported_instance) (sum by (cpu,exported_instance) (collectd_cpu_percent{type!=\"idle\",exported_instance=~\"controller.*\"}))",
               "legendFormat": "{{exported_instance}}",
               "refId": "A"
             }
@@ -286,7 +286,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (exported_instance) (sa_collectd_memory{memory=\"used\",exported_instance=~\"controller.*\"})",
+              "expr": "sum by (exported_instance) (collectd_memory{memory=\"used\",exported_instance=~\"controller.*\"})",
               "legendFormat": "{{exported_instance}}",
               "refId": "A"
             }
@@ -376,7 +376,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (exported_instance) (sa_collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",type!~\"free\", exported_instance=~\"controller.*\"})",
+              "expr": "sum by (exported_instance) (collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",type!~\"free\", exported_instance=~\"controller.*\"})",
               "legendFormat": "{{exported_instance}}",
               "refId": "A"
             }
@@ -483,7 +483,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (exported_instance) (sa_collectd_cpu_percent{type!=\"idle\",exported_instance=~\"compute.*\"}) / count by (exported_instance) (sum by (cpu,exported_instance) (sa_collectd_cpu_percent{type!=\"idle\",exported_instance=~\"compute.*\"}))",
+          "expr": "sum by (exported_instance) (collectd_cpu_percent{type!=\"idle\",exported_instance=~\"compute.*\"}) / count by (exported_instance) (sum by (cpu,exported_instance) (collectd_cpu_percent{type!=\"idle\",exported_instance=~\"compute.*\"}))",
           "legendFormat": "{{exported_instance}}",
           "refId": "A"
         }
