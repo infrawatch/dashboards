@@ -225,7 +225,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Total number of CPUs cores on node",
       "format": "none",
       "gauge": {
@@ -309,7 +309,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "decimals": 1,
       "description": "Total amount of memory on node",
       "format": "bytes",
@@ -395,7 +395,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "decimals": 1,
       "description": "Aproxement total disk space available on to the root device on this node.\n\nDisclaimer: this query excludes the temporary filesystems (tmpfs,devtmpfs,overlay). Thus, if swap storage is used, these file systems may use disk space, causing this result to appear smaller than it should. ",
       "format": "bytes",
@@ -681,7 +681,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Disclaimer: query contains a set of typical hardware interfaces seen on Linux systems. Some unrecognized interfaces may not be included in the query.",
       "format": "none",
       "gauge": {
@@ -768,7 +768,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Disclaimer: query contains a set of typical hardware interfaces seen on Linux systems. Some unrecognized interfaces may not be included in the query.",
       "format": "none",
       "gauge": {
@@ -851,7 +851,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Disclaimer: query contains a set of typical hardware interfaces seen on Linux systems. Some unrecognized interfaces may not be included in the query.",
       "fill": 1,
       "fillGradient": 0,
@@ -944,7 +944,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Disclaimer: query contains a set of typical hardware interfaces seen on Linux systems. Some unrecognized interfaces may not be included in the query.",
       "fill": 1,
       "fillGradient": 0,
@@ -1037,7 +1037,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Disclaimer: query contains a set of typical hardware interfaces seen on Linux systems. Some unrecognized interfaces may not be included in the query.",
       "fill": 1,
       "fillGradient": 0,
@@ -1130,7 +1130,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Disclaimer: query contains a set of typical hardware interfaces seen on Linux systems. Some unrecognized interfaces may not be included in the query.",
       "fill": 1,
       "fillGradient": 0,
@@ -1223,7 +1223,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Disclaimer: query contains a set of typical hardware interfaces seen on Linux systems. Some unrecognized interfaces may not be included in the query.",
       "fill": 1,
       "fillGradient": 0,
@@ -1606,7 +1606,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "",
       "gridPos": {
         "h": 5,
@@ -1678,7 +1678,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Average non-idle CPU activity of all cores on node",
       "fill": 1,
       "fillGradient": 0,
@@ -1771,7 +1771,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Shows average time spent for each activity across all cores",
       "fill": 1,
       "fillGradient": 0,
@@ -1875,7 +1875,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "",
       "gridPos": {
         "h": 6,
@@ -1951,7 +1951,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -2034,7 +2034,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "decimals": null,
       "description": "Memory used on node",
       "fill": 1,
@@ -2139,7 +2139,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "",
       "gridPos": {
         "h": 6,
@@ -2208,7 +2208,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "",
       "gridPos": {
         "h": 6,
@@ -2280,7 +2280,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -2372,7 +2372,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "decimals": 2,
       "description": "10m rolling average",
       "fill": 1,
@@ -2475,7 +2475,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "decimals": 2,
       "description": "Approximate percentage of total disk bandwidth being used.\n\nWeighted I/O includes the backlog that may be accumulating.",
       "fill": 1,
@@ -2576,7 +2576,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "decimals": null,
       "description": "Average time each I/O operation took to complete. Per the collectd disk plugin docs (https://collectd.org/wiki/index.php/Plugin:Disk), this average is not necessarily very accurate.",
       "fill": 1,
@@ -2679,7 +2679,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "SAFPrometheus",
+      "datasource": "STFPrometheus",
       "description": "Average time each I/O operation took to complete. Per the collectd disk plugin docs (https://collectd.org/wiki/index.php/Plugin:Disk), this average is not very accurate.",
       "fill": 1,
       "fillGradient": 0,
@@ -2790,7 +2790,7 @@
           "text": "controller-0.localdomain",
           "value": "controller-0.localdomain"
         },
-        "datasource": "SAFPrometheus",
+        "datasource": "STFPrometheus",
         "definition": "label_values(exported_instance)",
         "hide": 0,
         "includeAll": false,
