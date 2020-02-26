@@ -1,8 +1,8 @@
 # Service Telemetry Dashboards
 
-Dashboards for use with Service Telemetry. These dashboards can be loaded into
-a Grafana instance connected to backend data sources exposed by the Service
-Telemetry Framework.
+Dashboards for use with Service Telemetry Framework. These dashboards can be
+loaded into a Grafana instance connected to backend data sources exposed by the
+Service Telemetry Framework.
 
 ## Installation
 
