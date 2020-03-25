@@ -24,8 +24,8 @@ spec:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 1,
-      "iteration": 1582835003688,
+      "id": 2,
+      "iteration": 1585147897541,
       "links": [
         {
           "icon": "external link",
@@ -2851,7 +2851,7 @@ spec:
           "dashes": false,
           "datasource": "STFPrometheus",
           "decimals": null,
-          "description": "Average time each I/O operation took to complete. Per the collectd disk plugin docs (https://collectd.org/wiki/index.php/Plugin:Disk), this average is not necessarily very accurate.",
+          "description": "",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -3059,10 +3059,9 @@ spec:
           {
             "allValue": null,
             "current": {
-              "selected": false,
               "tags": [],
-              "text": "compute-0.redhat.local",
-              "value": "compute-0.redhat.local"
+              "text": "controller-0.redhat.local",
+              "value": "controller-0.redhat.local"
             },
             "datasource": "STFPrometheus",
             "definition": "label_values(exported_instance)",
@@ -3115,7 +3114,7 @@ spec:
         ]
       },
       "timezone": "",
-      "title": "Infrastructure Skeleton",
+      "title": "Infrastructure Node View",
       "uid": "1F1OJZEWz",
-      "version": 5
+      "version": 3
     }
