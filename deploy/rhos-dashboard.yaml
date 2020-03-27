@@ -373,7 +373,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_last_metric_for_host_status{exported_instance=\"$exported_instances\"} or on() vector(3))",
+              "expr": "sum(collectd_last_metric_for_host_status{host=\"$hosts\"} or on() vector(3))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -468,7 +468,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "collectd_uptime{exported_instance=\"$exported_instances\"}",
+              "expr": "collectd_uptime{host=\"$hosts\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "refId": "A"
@@ -552,7 +552,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "count(sum(collectd_cpu_percent{exported_instance=\"$exported_instances\"}) by (cpu))",
+              "expr": "count(sum(collectd_cpu_percent{host=\"$hosts\"}) by (cpu))",
               "format": "time_series",
               "intervalFactor": 1,
               "refId": "A"
@@ -637,7 +637,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_memory{exported_instance=\"$exported_instances\"})",
+              "expr": "sum(collectd_memory{host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{memory}}",
@@ -723,7 +723,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",exported_instance=\"$exported_instances\"})",
+              "expr": "sum(collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",host=\"$hosts\"})",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -813,7 +813,7 @@ spec:
           ],
           "targets": [
             {
-              "expr": "collectd_processes_ps_state{exported_instance=\"$exported_instances\"}",
+              "expr": "collectd_processes_ps_state{host=\"$hosts\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{processes}}",
@@ -869,21 +869,21 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "collectd_load_shortterm{exported_instance=\"$exported_instances\"}",
+              "expr": "collectd_load_shortterm{host=\"$hosts\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "short term",
               "refId": "A"
             },
             {
-              "expr": "collectd_load_midterm{exported_instance=\"$exported_instances\"}",
+              "expr": "collectd_load_midterm{host=\"$hosts\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "mid term",
               "refId": "B"
             },
             {
-              "expr": "collectd_load_longterm{exported_instance=\"$exported_instances\"}",
+              "expr": "collectd_load_longterm{host=\"$hosts\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "long term",
@@ -1010,7 +1010,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_interface_if_errors_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"})",
+              "expr": "sum(collectd_interface_if_errors_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1097,7 +1097,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_interface_if_errors_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"})",
+              "expr": "sum(collectd_interface_if_errors_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1164,7 +1164,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_errors_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"}[10m])",
+              "expr": "rate(collectd_interface_if_errors_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1257,7 +1257,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_errors_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"}[10m])",
+              "expr": "rate(collectd_interface_if_errors_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1350,7 +1350,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_packets_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"}[10m])",
+              "expr": "rate(collectd_interface_if_packets_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1443,7 +1443,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_packets_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"}[10m])",
+              "expr": "rate(collectd_interface_if_packets_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1536,7 +1536,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_octets_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"}[10m])",
+              "expr": "rate(collectd_interface_if_octets_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1629,7 +1629,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_octets_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"}[10m])",
+              "expr": "rate(collectd_interface_if_octets_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1722,7 +1722,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_dropped_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"}[10m])",
+              "expr": "rate(collectd_interface_if_dropped_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1815,7 +1815,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_dropped_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",exported_instance=\"$exported_instances\"}[10m])",
+              "expr": "rate(collectd_interface_if_dropped_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{interface}}",
@@ -1933,7 +1933,7 @@ spec:
           "pluginVersion": "6.5.1",
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type!=\"idle\", exported_instance=\"$exported_instances\"}) / count(sum by (type) (collectd_cpu_percent{type!=\"idle\",exported_instance=\"$exported_instances\"}))",
+              "expr": "sum(collectd_cpu_percent{type!=\"idle\", host=\"$hosts\"}) / count(sum by (type) (collectd_cpu_percent{type!=\"idle\",host=\"$hosts\"}))",
               "format": "time_series",
               "instant": true,
               "intervalFactor": 1,
@@ -1991,7 +1991,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type!=\"idle\", exported_instance=\"$exported_instances\"}) / count(sum by (type) (collectd_cpu_percent{type!=\"idle\",exported_instance=\"$exported_instances\"}))",
+              "expr": "sum(collectd_cpu_percent{type!=\"idle\", host=\"$hosts\"}) / count(sum by (type) (collectd_cpu_percent{type!=\"idle\",host=\"$hosts\"}))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Total",
@@ -2084,7 +2084,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type!=\"idle\", exported_instance=\"$exported_instances\"}) by (type) / count(collectd_cpu_percent{exported_instance=\"controller-0.localdomain\"}) by (type)",
+              "expr": "sum(collectd_cpu_percent{type!=\"idle\", host=\"$hosts\"}) by (type) / count(collectd_cpu_percent{host=\"controller-0.localdomain\"}) by (type)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{type}}",
@@ -2203,7 +2203,7 @@ spec:
           "pluginVersion": "6.5.1",
           "targets": [
             {
-              "expr": "sum(collectd_memory{memory=\"used\",exported_instance=\"$exported_instances\"})/ sum(collectd_memory{exported_instance=\"$exported_instances\"})",
+              "expr": "sum(collectd_memory{memory=\"used\",host=\"$hosts\"})/ sum(collectd_memory{host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{memory}}",
@@ -2280,7 +2280,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_hugepages_vmpage_number{type=\"used\",exported_instance=\"$exported_instances\"})",
+              "expr": "sum(collectd_hugepages_vmpage_number{type=\"used\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{hugepages}}",
@@ -2348,7 +2348,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_memory{memory=\"used\",exported_instance=\"$exported_instances\"})",
+              "expr": "sum(collectd_memory{memory=\"used\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "total",
@@ -2467,7 +2467,7 @@ spec:
           "pluginVersion": "6.5.1",
           "targets": [
             {
-              "expr": "sum(collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",type!=\"free\",exported_instance=\"$exported_instances\"})/sum(collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",exported_instance=\"$exported_instances\"})",
+              "expr": "sum(collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",type!=\"free\",host=\"$hosts\"})/sum(collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "",
@@ -2536,7 +2536,7 @@ spec:
           "pluginVersion": "6.5.1",
           "targets": [
             {
-              "expr": "sum(collectd_df_df_inodes{type=\"used\", exported_instance=\"$exported_instances\"}) / sum(collectd_df_df_inodes{exported_instance=\"$exported_instances\"})",
+              "expr": "sum(collectd_df_df_inodes{type=\"used\", host=\"$hosts\"}) / sum(collectd_df_df_inodes{host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "",
@@ -2592,7 +2592,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (type) (collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",type!~\"free\",exported_instance=\"$exported_instances\"})",
+              "expr": "sum by (type) (collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",type!~\"free\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{type}}",
@@ -2687,14 +2687,14 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(collectd_disk_disk_octets_read_total{exported_instance=\"$exported_instances\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_octets_read_total{host=\"$hosts\"}[10m]))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "read",
               "refId": "B"
             },
             {
-              "expr": "sum(rate(collectd_disk_disk_octets_write_total{exported_instance=\"$exported_instances\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_octets_write_total{host=\"$hosts\"}[10m]))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "write",
@@ -2789,7 +2789,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(collectd_disk_disk_io_time_io_time_total{exported_instance=\"$exported_instances\"}[1h]))/1000",
+              "expr": "sum(rate(collectd_disk_disk_io_time_io_time_total{host=\"$hosts\"}[1h]))/1000",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -2797,7 +2797,7 @@ spec:
               "refId": "A"
             },
             {
-              "expr": "sum(rate(collectd_disk_disk_io_time_weighted_io_time_total{exported_instance=\"$exported_instances\"}[1h]))/1000",
+              "expr": "sum(rate(collectd_disk_disk_io_time_weighted_io_time_total{host=\"$hosts\"}[1h]))/1000",
               "legendFormat": "weighted i/o",
               "refId": "B"
             }
@@ -2890,7 +2890,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(collectd_disk_disk_ops_read_total{exported_instance=\"$exported_instances\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_ops_read_total{host=\"$hosts\"}[10m]))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -2898,7 +2898,7 @@ spec:
               "refId": "A"
             },
             {
-              "expr": "sum(rate(collectd_disk_disk_ops_write_total{exported_instance=\"$exported_instances\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_ops_write_total{host=\"$hosts\"}[10m]))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -2992,7 +2992,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(collectd_disk_disk_time_read_total{exported_instance=\"$exported_instances\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_time_read_total{host=\"$hosts\"}[10m]))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3000,7 +3000,7 @@ spec:
               "refId": "A"
             },
             {
-              "expr": "sum(rate(collectd_disk_disk_time_write_total{exported_instance=\"$exported_instances\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_time_write_total{host=\"$hosts\"}[10m]))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -3064,14 +3064,14 @@ spec:
               "value": "controller-0.redhat.local"
             },
             "datasource": "STFPrometheus",
-            "definition": "label_values(exported_instance)",
+            "definition": "label_values(host)",
             "hide": 0,
             "includeAll": false,
             "label": "nodes",
             "multi": false,
-            "name": "exported_instances",
+            "name": "hosts",
             "options": [],
-            "query": "label_values(exported_instance)",
+            "query": "label_values(host)",
             "refresh": 1,
             "regex": "",
             "skipUrlSync": false,
