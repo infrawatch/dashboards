@@ -205,7 +205,7 @@ spec:
               "steppedLine": false,
               "targets": [
                 {
-                  "expr": "sum by (host) (collectd_cpu_percent{type!=\"idle\",host=~\"controller.*\"}) / count by (host) (sum by (cpu,host) (collectd_cpu_percent{type!=\"idle\",host=~\"controller.*\"}))",
+                  "expr": "sum by (host) (collectd_cpu_percent{type!=\"idle\",host=~\"controller.*\"}) / count by (host) (sum by (plugin_instance,host) (collectd_cpu_percent{type!=\"idle\",host=~\"controller.*\"}))",
                   "legendFormat": "{{host}}",
                   "refId": "A"
                 }
@@ -295,7 +295,7 @@ spec:
               "steppedLine": false,
               "targets": [
                 {
-                  "expr": "sum by (host) (collectd_memory{memory=\"used\",host=~\"controller.*\"})",
+                  "expr": "sum by (host) (collectd_memory{plugin_instance=\"used\",host=~\"controller.*\"})",
                   "legendFormat": "{{host}}",
                   "refId": "A"
                 }
@@ -385,7 +385,7 @@ spec:
               "steppedLine": false,
               "targets": [
                 {
-                  "expr": "sum by (host) (collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",type!~\"free\", host=~\"controller.*\"})",
+                  "expr": "sum by (host) (collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",type!~\"free\", host=~\"controller.*\"})",
                   "legendFormat": "{{host}}",
                   "refId": "A"
                 }

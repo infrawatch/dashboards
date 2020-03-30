@@ -552,7 +552,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "count(sum(collectd_cpu_percent{host=\"$hosts\"}) by (cpu))",
+              "expr": "count(sum(collectd_cpu_percent{host=\"$hosts\"}) by (plugin_instance))",
               "format": "time_series",
               "intervalFactor": 1,
               "refId": "A"
@@ -723,7 +723,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",host=\"$hosts\"})",
+              "expr": "sum(collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",host=\"$hosts\"})",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -1010,10 +1010,10 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_interface_if_errors_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"})",
+              "expr": "sum(collectd_interface_if_errors_rx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -1097,10 +1097,10 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_interface_if_errors_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"})",
+              "expr": "sum(collectd_interface_if_errors_tx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -1164,10 +1164,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_errors_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_errors_rx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -1257,10 +1257,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_errors_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_errors_tx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -1350,10 +1350,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_packets_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_packets_rx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -1443,10 +1443,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_packets_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_packets_tx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -1536,10 +1536,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_octets_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_octets_rx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -1629,10 +1629,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_octets_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_octets_tx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -1722,10 +1722,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_dropped_rx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_dropped_rx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -1815,10 +1815,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_dropped_tx_total{interface=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_dropped_tx_total{plugin_instance=~\"eth.*|wlan.*|wlp.*|ens.*|enp.*\",host=\"$hosts\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{interface}}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -2348,7 +2348,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_memory{memory=\"used\",host=\"$hosts\"})",
+              "expr": "sum(collectd_memory{plugin_instance=\"used\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "total",
@@ -2467,7 +2467,7 @@ spec:
           "pluginVersion": "6.5.1",
           "targets": [
             {
-              "expr": "sum(collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",type!=\"free\",host=\"$hosts\"})/sum(collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",host=\"$hosts\"})",
+              "expr": "sum(collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",type!=\"free\",host=\"$hosts\"})/sum(collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "",
@@ -2592,7 +2592,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (type) (collectd_df_df_complex{df!~\"devtmpfs|overlay|shm|tmpfs\",type!~\"free\",host=\"$hosts\"})",
+              "expr": "sum by (type) (collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",type!~\"free\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{type}}",
