@@ -2084,7 +2084,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type!=\"idle\", exported_instance=\"$exported_instances\"}) by (type) / count(collectd_cpu_percent{exported_instance=\"controller-0.localdomain\"}) by (type)",
+              "expr": "sum(collectd_cpu_percent{type!=\"idle\", exported_instance=\"$exported_instances\"}) by (type) / count(collectd_cpu_percent{exported_instance=\"$exported_instances\"}) by (type)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{type}}",
