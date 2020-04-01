@@ -1933,7 +1933,7 @@ spec:
           "pluginVersion": "6.5.1",
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type!=\"idle\", host=\"$hosts\"}) / count(sum by (type) (collectd_cpu_percent{type!=\"idle\",host=\"$hosts\"}))",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) / count(sum by (type_instance) (collectd_cpu_percent{type_instance!=\"idle\",host=\"$hosts\"}))",
               "format": "time_series",
               "instant": true,
               "intervalFactor": 1,
@@ -1991,7 +1991,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type!=\"idle\", host=\"$hosts\"}) / count(sum by (type) (collectd_cpu_percent{type!=\"idle\",host=\"$hosts\"}))",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) / count(sum by (type_instance) (collectd_cpu_percent{type_instance!=\"idle\",host=\"$hosts\"}))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Total",
@@ -2084,10 +2084,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type!=\"idle\", host=\"$hosts\"}) by (type) / count(collectd_cpu_percent{host=\"controller-0.localdomain\"}) by (type)",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) by (type_instance) / count(collectd_cpu_percent{host=\"controller-0.localdomain\"}) by (type_instance)",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{type}}",
+              "legendFormat": "{{type_instance}}",
               "refId": "A"
             }
           ],
@@ -2280,7 +2280,7 @@ spec:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "sum(collectd_hugepages_vmpage_number{type=\"used\",host=\"$hosts\"})",
+              "expr": "sum(collectd_hugepages_vmpage_number{type_instance=\"used\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{hugepages}}",
@@ -2467,7 +2467,7 @@ spec:
           "pluginVersion": "6.5.1",
           "targets": [
             {
-              "expr": "sum(collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",type!=\"free\",host=\"$hosts\"})/sum(collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",host=\"$hosts\"})",
+              "expr": "sum(collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",type_instance!=\"free\",host=\"$hosts\"})/sum(collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "",
@@ -2536,7 +2536,7 @@ spec:
           "pluginVersion": "6.5.1",
           "targets": [
             {
-              "expr": "sum(collectd_df_df_inodes{type=\"used\", host=\"$hosts\"}) / sum(collectd_df_df_inodes{host=\"$hosts\"})",
+              "expr": "sum(collectd_df_df_inodes{type_instance=\"used\", host=\"$hosts\"}) / sum(collectd_df_df_inodes{host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "",
@@ -2592,10 +2592,10 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (type) (collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",type!~\"free\",host=\"$hosts\"})",
+              "expr": "sum by (type_instance) (collectd_df_df_complex{plugin_instance!~\"devtmpfs|overlay|shm|tmpfs\",type_instance!~\"free\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{type}}",
+              "legendFormat": "{{type_instance}}",
               "refId": "A"
             }
           ],
