@@ -25,7 +25,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 2,
-      "iteration": 1585842462232,
+      "iteration": 1585934380646,
       "links": [
         {
           "icon": "external link",
@@ -2079,8 +2079,9 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) by (type_instance) / count(collectd_cpu_percent{host=\"controller-0.localdomain\"}) by (type_instance)",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) by (type_instance) / count(collectd_cpu_percent{host=\"$hosts\"}) by (type_instance)",
               "format": "time_series",
+              "hide": false,
               "intervalFactor": 1,
               "legendFormat": "{{type_instance}}",
               "refId": "A"
@@ -2198,8 +2199,9 @@ spec:
           "pluginVersion": "6.5.1",
           "targets": [
             {
-              "expr": "sum(collectd_memory{memory=\"used\",host=\"$hosts\"})/ sum(collectd_memory{host=\"$hosts\"})",
+              "expr": "sum(collectd_memory{type_instance=\"used\",host=\"$hosts\"})/ sum(collectd_memory{host=\"$hosts\"})",
               "format": "time_series",
+              "hide": false,
               "intervalFactor": 1,
               "legendFormat": "{{memory}}",
               "refId": "A"
@@ -2343,7 +2345,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_memory{plugin_instance=\"used\",host=\"$hosts\"})",
+              "expr": "sum(collectd_memory{type_instance=\"used\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "total",
@@ -3055,8 +3057,8 @@ spec:
             "allValue": null,
             "current": {
               "selected": false,
-              "text": "compute-0.redhat.local",
-              "value": "compute-0.redhat.local"
+              "text": "controller-0.redhat.local",
+              "value": "controller-0.redhat.local"
             },
             "datasource": "STFPrometheus",
             "definition": "label_values(host)",
@@ -3111,5 +3113,5 @@ spec:
       "timezone": "",
       "title": "Infrastructure Node View",
       "uid": "1F1OJZEWz",
-      "version": 8
+      "version": 12
     }
