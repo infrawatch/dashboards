@@ -811,7 +811,7 @@ spec:
               "expr": "collectd_processes_ps_state{host=\"$hosts\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{processes}}",
+              "legendFormat": "{{type_instance}}",
               "refId": "A"
             }
           ],
