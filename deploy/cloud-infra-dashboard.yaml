@@ -24,8 +24,8 @@ spec:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 3,
-      "iteration": 1597954302582,
+      "id": 5,
+      "iteration": 1597956234682,
       "links": [],
       "panels": [
         {
@@ -50,7 +50,7 @@ spec:
           "dashes": false,
           "datasource": "$datasource",
           "fill": 10,
-          "fillGradient": 0,
+          "fillGradient": 10,
           "gridPos": {
             "h": 7,
             "w": 12,
@@ -69,7 +69,7 @@ spec:
             "values": false
           },
           "lines": true,
-          "linewidth": 0,
+          "linewidth": 1,
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
@@ -142,7 +142,7 @@ spec:
           "dashes": false,
           "datasource": "$datasource",
           "fill": 10,
-          "fillGradient": 0,
+          "fillGradient": 10,
           "gridPos": {
             "h": 7,
             "w": 12,
@@ -161,7 +161,7 @@ spec:
             "values": false
           },
           "lines": true,
-          "linewidth": 0,
+          "linewidth": 1,
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
@@ -248,8 +248,8 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": "$datasource",
-          "fill": 5,
-          "fillGradient": 0,
+          "fill": 10,
+          "fillGradient": 10,
           "gridPos": {
             "h": 7,
             "w": 12,
@@ -268,7 +268,7 @@ spec:
             "values": false
           },
           "lines": true,
-          "linewidth": 0,
+          "linewidth": 1,
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
@@ -341,7 +341,7 @@ spec:
           "dashes": false,
           "datasource": "$datasource",
           "fill": 10,
-          "fillGradient": 0,
+          "fillGradient": 10,
           "gridPos": {
             "h": 7,
             "w": 12,
@@ -360,7 +360,7 @@ spec:
             "values": false
           },
           "lines": true,
-          "linewidth": 0,
+          "linewidth": 1,
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
@@ -448,7 +448,7 @@ spec:
           "dashes": false,
           "datasource": "$datasource",
           "fill": 10,
-          "fillGradient": 0,
+          "fillGradient": 10,
           "gridPos": {
             "h": 7,
             "w": 12,
@@ -467,7 +467,7 @@ spec:
             "values": false
           },
           "lines": true,
-          "linewidth": 0,
+          "linewidth": 1,
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
@@ -559,7 +559,7 @@ spec:
           "dashes": false,
           "datasource": "$datasource",
           "fill": 10,
-          "fillGradient": 0,
+          "fillGradient": 10,
           "gridPos": {
             "h": 7,
             "w": 12,
@@ -578,7 +578,7 @@ spec:
             "values": false
           },
           "lines": true,
-          "linewidth": 0,
+          "linewidth": 1,
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
@@ -684,8 +684,8 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": "$datasource",
-          "fill": 5,
-          "fillGradient": 0,
+          "fill": 10,
+          "fillGradient": 10,
           "gridPos": {
             "h": 7,
             "w": 12,
@@ -704,7 +704,7 @@ spec:
             "values": false
           },
           "lines": true,
-          "linewidth": 0,
+          "linewidth": 1,
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
@@ -776,8 +776,8 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": "$datasource",
-          "fill": 5,
-          "fillGradient": 0,
+          "fill": 10,
+          "fillGradient": 10,
           "gridPos": {
             "h": 7,
             "w": 12,
@@ -796,7 +796,7 @@ spec:
             "values": false
           },
           "lines": true,
-          "linewidth": 0,
+          "linewidth": 1,
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
@@ -884,7 +884,7 @@ spec:
           "dashes": false,
           "datasource": "$datasource",
           "fill": 10,
-          "fillGradient": 0,
+          "fillGradient": 10,
           "gridPos": {
             "h": 7,
             "w": 24,
@@ -903,7 +903,7 @@ spec:
             "values": false
           },
           "lines": true,
-          "linewidth": 0,
+          "linewidth": 1,
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
@@ -1027,5 +1027,5 @@ spec:
       "timezone": "",
       "title": "Cloud Infrastructure Overview",
       "uid": "3e97d1d02672cdd0861f4c97c64f89b4",
-      "version": 13
+      "version": 3
     }
