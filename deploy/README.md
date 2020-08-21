@@ -36,5 +36,6 @@ CollectdExtraPlugins:
 
 ExtraConfig:
   <existing parameters>
+  collectd::plugin::cpu::reportnumcpu: true
   collectd::plugin::vmem::verbose: true
 ```
