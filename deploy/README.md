@@ -6,15 +6,15 @@ available at https://infrawatch.github.com/documentation.
 
 ## Dashboards for OpenStack
 
-| filename | description |
---------------------------
-| cloud-infra-dashboard.yaml  | Overall view of cloud infrastructure with a focus on CPU, memory, network, and disk health                                               |
-| datasource.yaml             | Default Grafana datasources, compatible with a typical STF deployment                                                                    |
-| grafana.yaml                | Grafana manifest to launch a Grafana instance via the Grafana Operator                                                                   |
-| rhos-cloud-dashboard.yaml   | Development dashboard. Not complete.                                                                                                     |
-| rhos-dashboard.yaml         | Individual node drill-down dashboard for cloud infrastructure with a focus on CPU, memory, network, and disk health                      |
-| rhos-service-dashboard.yaml | Development dashboard. Not complete.                                                                                                     |
-| subscription.yaml           | Subscription manifest for installation of the Grafana Operator via the Operator Lifecycle Manager from the OperatorHub.io catalog source |
+| filename                      | description                                                                                                                                 |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| cloud-infra-dashboard.yaml    | Overall view of cloud infrastructure with a focus on CPU, memory, network, and disk health                                                  |
+| datasource.yaml               | Default Grafana datasources, compatible with a typical STF deployment                                                                       |
+| grafana.yaml                  | Grafana manifest to launch a Grafana instance via the Grafana Operator                                                                      |
+| rhos-cloud-dashboard.yaml     | Development dashboard. Not complete.                                                                                                        |
+| rhos-dashboard.yaml           | Individual node drill-down dashboard for cloud infrastructure with a focus on CPU, memory, network, and disk health                         |
+| rhos-service-dashboard.yaml   | Development dashboard. Not complete.                                                                                                        |
+| subscription.yaml             | Subscription manifest for installation of the Grafana Operator via the Operator Lifecycle Manager from the OperatorHub.io catalog source    |
 
 # Additional notes
 
