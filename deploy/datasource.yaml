@@ -14,8 +14,8 @@ spec:
       basicAuth: true
       basicAuthUser: elastic
       basicAuthPassword: $ES_DATASOURCE
+      database: collectd_checks
       jsonData:
-        indexName: collectd_checks
         tlsSkipVerify: true
         timeField: startsAt
         esVersion: 70
