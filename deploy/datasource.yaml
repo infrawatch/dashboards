@@ -13,7 +13,7 @@ spec:
       type: elasticsearch
       basicAuth: true
       basicAuthUser: elastic
-      basicAuthPassword: $ES_DATASOURCE
+      basicAuthPassword: ES_PASSWORD
       database: collectd_checks
       jsonData:
         tlsSkipVerify: true
