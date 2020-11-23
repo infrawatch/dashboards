@@ -25,18 +25,8 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 1,
-      "iteration": 1605888772997,
-      "links": [
-        {
-          "icon": "external link",
-          "tags": [
-            "CloudView"
-          ],
-          "targetBlank": false,
-          "type": "dashboards",
-          "url": ""
-        }
-      ],
+      "iteration": 1606146495921,
+      "links": [],
       "panels": [
         {
           "collapsed": false,
@@ -527,14 +517,14 @@ spec:
           "options": {
             "fieldOptions": {
               "calcs": [
-                "lastNotNull"
+                "last"
               ],
               "defaults": {
                 "mappings": [
                   {
                     "id": 0,
                     "op": "=",
-                    "text": "N/A",
+                    "text": "0.0%",
                     "type": 1,
                     "value": "null"
                   }
@@ -548,12 +538,8 @@ spec:
                     "value": null
                   },
                   {
-                    "color": "rgba(237, 129, 40, 0.89)",
-                    "value": 90
-                  },
-                  {
                     "color": "#d44a3a",
-                    "value": 95
+                    "value": 80
                   }
                 ],
                 "unit": "percent"
@@ -596,7 +582,7 @@ spec:
           "options": {
             "fieldOptions": {
               "calcs": [
-                "lastNotNull"
+                "last"
               ],
               "defaults": {
                 "decimals": 1,
@@ -604,7 +590,7 @@ spec:
                   {
                     "id": 0,
                     "op": "=",
-                    "text": "N/A",
+                    "text": "0.0%",
                     "type": 1,
                     "value": "null"
                   }
@@ -618,12 +604,8 @@ spec:
                     "value": null
                   },
                   {
-                    "color": "rgba(237, 129, 40, 0.89)",
-                    "value": 0.9
-                  },
-                  {
                     "color": "#d44a3a",
-                    "value": 0.95
+                    "value": 0.8
                   }
                 ],
                 "unit": "percentunit"
@@ -933,7 +915,7 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 6,
+            "h": 8,
             "w": 8,
             "x": 0,
             "y": 16
@@ -946,8 +928,8 @@ spec:
             "current": true,
             "max": true,
             "min": true,
-            "rightSide": true,
-            "show": false,
+            "rightSide": false,
+            "show": true,
             "total": false,
             "values": true
           },
@@ -1034,7 +1016,7 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 6,
+            "h": 8,
             "w": 8,
             "x": 8,
             "y": 16
@@ -1044,13 +1026,13 @@ spec:
           "legend": {
             "alignAsTable": true,
             "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": true,
-            "show": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
             "total": false,
-            "values": false
+            "values": true
           },
           "lines": true,
           "linewidth": 1,
@@ -1119,7 +1101,7 @@ spec:
               "logBase": 1,
               "max": null,
               "min": null,
-              "show": true
+              "show": false
             }
           ],
           "yaxis": {
@@ -1137,7 +1119,7 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 6,
+            "h": 8,
             "w": 8,
             "x": 16,
             "y": 16
@@ -1150,8 +1132,8 @@ spec:
             "current": true,
             "max": true,
             "min": true,
-            "rightSide": true,
-            "show": false,
+            "rightSide": false,
+            "show": true,
             "total": false,
             "values": true
           },
@@ -1237,7 +1219,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 22
+            "y": 24
           },
           "id": 21,
           "panels": [],
@@ -1254,10 +1236,10 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 5,
+            "h": 8,
             "w": 12,
             "x": 0,
-            "y": 23
+            "y": 25
           },
           "hiddenSeries": false,
           "id": 2,
@@ -1347,10 +1329,10 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 5,
+            "h": 8,
             "w": 12,
             "x": 12,
-            "y": 23
+            "y": 25
           },
           "hiddenSeries": false,
           "id": 15,
@@ -1360,8 +1342,8 @@ spec:
             "current": true,
             "max": true,
             "min": true,
-            "rightSide": true,
-            "show": false,
+            "rightSide": false,
+            "show": true,
             "total": false,
             "values": true
           },
@@ -1438,7 +1420,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 28
+            "y": 33
           },
           "id": 25,
           "panels": [],
@@ -1459,7 +1441,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 29
+            "y": 34
           },
           "hiddenSeries": false,
           "id": 27,
@@ -1469,8 +1451,8 @@ spec:
             "current": true,
             "max": true,
             "min": true,
-            "rightSide": true,
-            "show": true,
+            "rightSide": false,
+            "show": false,
             "total": false,
             "values": true
           },
@@ -1550,9 +1532,9 @@ spec:
           "fillGradient": 0,
           "gridPos": {
             "h": 5,
-            "w": 12,
+            "w": 9,
             "x": 12,
-            "y": 29
+            "y": 34
           },
           "hiddenSeries": false,
           "id": 23,
@@ -1561,7 +1543,7 @@ spec:
             "current": false,
             "max": false,
             "min": false,
-            "show": true,
+            "show": false,
             "total": false,
             "values": false
           },
@@ -1583,7 +1565,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_hugepages_vmpage_number{type_instance=\"free\",host=\"$hosts\"})",
+              "expr": "sum(collectd_hugepages_vmpage_number{type_instance=\"used\",host=\"$hosts\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{hugepages}}",
@@ -1632,13 +1614,76 @@ spec:
           }
         },
         {
+          "cacheTimeout": null,
+          "datasource": "STFPrometheus",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 21,
+            "y": 34
+          },
+          "id": 71,
+          "links": [],
+          "options": {
+            "fieldOptions": {
+              "calcs": [
+                "last"
+              ],
+              "defaults": {
+                "mappings": [
+                  {
+                    "id": 0,
+                    "op": "=",
+                    "text": "0.0%",
+                    "type": 1,
+                    "value": "null"
+                  }
+                ],
+                "max": 1,
+                "min": 0,
+                "nullValueMode": "connected",
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 0.8
+                  }
+                ],
+                "unit": "percentunit"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "horizontal",
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
+          "pluginVersion": "6.5.1",
+          "targets": [
+            {
+              "expr": "sum(collectd_hugepages_vmpage_number{type_instance=\"used\",host=\"$hosts\"}) / sum(collectd_hugepages_vmpage_number{host=\"$hosts\"})",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{hugepages}}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Huge Pages (%)",
+          "type": "gauge"
+        },
+        {
           "collapsed": false,
           "datasource": null,
           "gridPos": {
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 34
+            "y": 39
           },
           "id": 11,
           "panels": [],
@@ -1650,10 +1695,10 @@ spec:
           "datasource": "STFPrometheus",
           "description": "",
           "gridPos": {
-            "h": 5,
-            "w": 8,
+            "h": 8,
+            "w": 6,
             "x": 0,
-            "y": 35
+            "y": 40
           },
           "id": 51,
           "links": [],
@@ -1709,10 +1754,10 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 5,
-            "w": 16,
-            "x": 8,
-            "y": 35
+            "h": 8,
+            "w": 18,
+            "x": 6,
+            "y": 40
           },
           "hiddenSeries": false,
           "id": 9,
@@ -1722,7 +1767,7 @@ spec:
             "current": true,
             "max": true,
             "min": true,
-            "rightSide": true,
+            "rightSide": false,
             "show": true,
             "total": false,
             "values": true
@@ -1799,7 +1844,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 40
+            "y": 48
           },
           "id": 70,
           "panels": [],
@@ -1817,10 +1862,10 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 5,
+            "h": 6,
             "w": 12,
             "x": 0,
-            "y": 41
+            "y": 49
           },
           "hiddenSeries": false,
           "id": 13,
@@ -1831,7 +1876,7 @@ spec:
             "hideZero": false,
             "max": true,
             "min": true,
-            "rightSide": true,
+            "rightSide": false,
             "show": true,
             "total": false,
             "values": true
@@ -1920,10 +1965,10 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 5,
+            "h": 6,
             "w": 12,
             "x": 12,
-            "y": 41
+            "y": 49
           },
           "hiddenSeries": false,
           "id": 4,
@@ -1933,7 +1978,7 @@ spec:
             "current": true,
             "max": true,
             "min": true,
-            "rightSide": true,
+            "rightSide": false,
             "show": true,
             "total": false,
             "values": true
@@ -2021,10 +2066,10 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 5,
+            "h": 6,
             "w": 12,
             "x": 0,
-            "y": 46
+            "y": 55
           },
           "hiddenSeries": false,
           "id": 17,
@@ -2034,7 +2079,7 @@ spec:
             "current": true,
             "max": true,
             "min": true,
-            "rightSide": true,
+            "rightSide": false,
             "show": true,
             "total": false,
             "values": true
@@ -2123,10 +2168,10 @@ spec:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 5,
+            "h": 6,
             "w": 12,
             "x": 12,
-            "y": 46
+            "y": 55
           },
           "hiddenSeries": false,
           "id": 16,
@@ -2136,7 +2181,7 @@ spec:
             "current": true,
             "max": true,
             "min": true,
-            "rightSide": true,
+            "rightSide": false,
             "show": true,
             "total": false,
             "values": true
@@ -2224,11 +2269,6 @@ spec:
         "list": [
           {
             "allValue": null,
-            "current": {
-              "selected": true,
-              "text": "controller-0.redhat.local",
-              "value": "controller-0.redhat.local"
-            },
             "datasource": "STFPrometheus",
             "definition": "label_values(host)",
             "hide": 0,
@@ -2251,7 +2291,7 @@ spec:
         ]
       },
       "time": {
-        "from": "now-24h",
+        "from": "now-12h",
         "to": "now"
       },
       "timepicker": {
@@ -2282,5 +2322,5 @@ spec:
       "timezone": "",
       "title": "Infrastructure Node View",
       "uid": "1F1OJZEWz",
-      "version": 24
+      "version": 26
     }
