@@ -25,7 +25,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 1,
-      "iteration": 1606146495921,
+      "iteration": 1606152811123,
       "links": [],
       "panels": [
         {
@@ -870,11 +870,12 @@ spec:
           },
           "yaxes": [
             {
+              "decimals": null,
               "format": "short",
               "label": "Processes",
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -1302,7 +1303,7 @@ spec:
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -1396,7 +1397,7 @@ spec:
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -1504,7 +1505,7 @@ spec:
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -1596,7 +1597,7 @@ spec:
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -1937,7 +1938,7 @@ spec:
               "label": "",
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -2038,7 +2039,7 @@ spec:
               "label": "",
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -2141,7 +2142,7 @@ spec:
               "label": "",
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -2243,7 +2244,7 @@ spec:
               "label": "",
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -2322,5 +2323,5 @@ spec:
       "timezone": "",
       "title": "Infrastructure Node View",
       "uid": "1F1OJZEWz",
-      "version": 26
+      "version": 28
     }
