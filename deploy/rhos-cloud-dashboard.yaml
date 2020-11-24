@@ -6,6 +6,7 @@ metadata:
   name: rhos-cloud-dashboard
   namespace: service-telemetry
 spec:
+  name: rhos-cloud-dashboard.json
   plugins: 
     - name: grafana-polystat-panel
       version: "1.2.2"
@@ -20,7 +21,9 @@ spec:
             "enable": true,
             "hide": true,
             "iconColor": "rgba(0, 211, 255, 1)",
+            "limit": 100,
             "name": "Annotations & Alerts",
+            "showIn": 0,
             "type": "dashboard"
           }
         ]
@@ -29,17 +32,228 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 2,
-      "links": [],
+      "iteration": 1606250232524,
+      "links": [
+        {
+          "asDropdown": true,
+          "icon": "external link",
+          "tags": [],
+          "type": "dashboards"
+        }
+      ],
       "panels": [
+        {
+          "cacheTimeout": null,
+          "cards": {
+            "cardPadding": 0,
+            "cardRound": null
+          },
+          "color": {
+            "cardColor": "#37872D",
+            "colorScale": "linear",
+            "colorScheme": "interpolateReds",
+            "exponent": 0.5,
+            "max": 1,
+            "min": 0,
+            "mode": "opacity"
+          },
+          "dataFormat": "tsbuckets",
+          "datasource": "ceilometer_compute_instance",
+          "gridPos": {
+            "h": 7,
+            "w": 15,
+            "x": 0,
+            "y": 0
+          },
+          "heatmap": {},
+          "hideZeroBuckets": false,
+          "highlightCards": true,
+          "id": 21,
+          "legend": {
+            "show": false
+          },
+          "links": [],
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "reverseYBuckets": false,
+          "targets": [
+            {
+              "alias": "glance_api",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:glance_api",
+              "refId": "B",
+              "timeField": "startsAt"
+            },
+            {
+              "alias": "nova_api",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "pipelineVariables": [
+                    {
+                      "name": "",
+                      "pipelineAgg": "select metric"
+                    }
+                  ],
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:nova_api",
+              "refId": "A",
+              "timeField": "startsAt"
+            },
+            {
+              "alias": "heat_api",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:heat_api",
+              "refId": "C",
+              "timeField": "startsAt"
+            },
+            {
+              "alias": "neutron_api",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:neutron_api",
+              "refId": "D",
+              "timeField": "startsAt"
+            },
+            {
+              "alias": "placement_api",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:placement_api",
+              "refId": "E",
+              "timeField": "startsAt"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "API Statuses",
+          "tooltip": {
+            "show": true,
+            "showHistogram": false
+          },
+          "type": "heatmap",
+          "xAxis": {
+            "show": true
+          },
+          "xBucketNumber": null,
+          "xBucketSize": "2m",
+          "yAxis": {
+            "decimals": null,
+            "format": "short",
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true,
+            "splitFactor": null
+          },
+          "yBucketBound": "middle",
+          "yBucketNumber": null,
+          "yBucketSize": null
+        },
         {
           "dashboardFilter": "",
           "dashboardTags": [],
           "datasource": null,
           "folderId": null,
           "gridPos": {
-            "h": 13,
-            "w": 6,
-            "x": 18,
+            "h": 11,
+            "w": 9,
+            "x": 15,
             "y": 0
           },
           "id": 4,
@@ -52,8 +266,548 @@ spec:
           "stateFilter": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Alerts",
+          "title": "All Alerts",
           "type": "alertlist"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "ceilometer_compute_instance",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 0,
+            "y": 7
+          },
+          "id": 29,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:placement_api",
+              "refId": "A",
+              "timeField": "startsAt"
+            }
+          ],
+          "thresholds": "",
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Uptime placement_api",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "ceilometer_compute_instance",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 3,
+            "y": 7
+          },
+          "id": 30,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:neutron_api",
+              "refId": "A",
+              "timeField": "startsAt"
+            }
+          ],
+          "thresholds": "",
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Uptime neutron_api",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "ceilometer_compute_instance",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 6,
+            "y": 7
+          },
+          "id": 31,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:heat_api",
+              "refId": "A",
+              "timeField": "startsAt"
+            }
+          ],
+          "thresholds": "",
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Uptime heat_api",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "ceilometer_compute_instance",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 9,
+            "y": 7
+          },
+          "id": 26,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:nova_api",
+              "refId": "A",
+              "timeField": "startsAt"
+            }
+          ],
+          "thresholds": "",
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Uptime nova_api",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "ceilometer_compute_instance",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 12,
+            "y": 7
+          },
+          "id": 32,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:glance_api",
+              "refId": "A",
+              "timeField": "startsAt"
+            }
+          ],
+          "thresholds": "",
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Uptime glance_api",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
         },
         {
           "collapsed": false,
@@ -62,11 +816,293 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 13
+            "y": 11
+          },
+          "id": 23,
+          "panels": [],
+          "title": "Instances",
+          "type": "row"
+        },
+        {
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a",
+            "#4040a0"
+          ],
+          "datasource": null,
+          "description": "Click instance for drill down view",
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 12
+          },
+          "id": 17,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxPerRow": 3,
+          "options": {},
+          "polystat": {
+            "animationSpeed": 2500,
+            "columnAutoSize": true,
+            "columns": "",
+            "defaultClickThrough": "",
+            "defaultClickThroughNewTab": false,
+            "defaultClickThroughSanitize": false,
+            "displayLimit": 100,
+            "fontAutoColor": true,
+            "fontAutoScale": true,
+            "fontColor": "",
+            "fontSize": 12,
+            "fontType": "Roboto",
+            "globalDecimals": 2,
+            "globalDisplayMode": "all",
+            "globalDisplayTextTriggeredEmpty": "OK",
+            "globalOperatorName": "avg",
+            "globalUnitFormat": "short",
+            "gradientEnabled": false,
+            "hexagonSortByDirection": 1,
+            "hexagonSortByField": "name",
+            "maxMetrics": 0,
+            "polygonBorderColor": "black",
+            "polygonBorderSize": 2,
+            "polygonGlobalFillColor": "#FFEE52",
+            "radius": "",
+            "radiusAutoSize": true,
+            "rowAutoSize": true,
+            "rows": "",
+            "shape": "hexagon_pointed_top",
+            "tooltipDisplayMode": "all",
+            "tooltipDisplayTextTriggeredEmpty": "OK",
+            "tooltipFontSize": 12,
+            "tooltipFontType": "Roboto",
+            "tooltipPrimarySortDirection": 2,
+            "tooltipPrimarySortField": "thresholdLevel",
+            "tooltipSecondarySortDirection": 2,
+            "tooltipSecondarySortField": "value",
+            "tooltipTimestampEnabled": true,
+            "valueEnabled": false
+          },
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "repeat": "projects",
+          "repeatDirection": "h",
+          "savedComposites": [],
+          "savedOverrides": [
+            {
+              "clickThrough": "d/hvMzdgdMz/virtual-machine-view?var-project=${projects}",
+              "colors": [
+                "#299c46",
+                "#e5ac0e",
+                "#bf1b00",
+                "#4040a0"
+              ],
+              "decimals": "",
+              "enabled": true,
+              "label": "OVERRIDE 1",
+              "metricName": ".*",
+              "newTabEnabled": true,
+              "operatorName": "avg",
+              "prefix": "",
+              "sanitizeURLEnabled": true,
+              "scaledDecimals": null,
+              "suffix": "",
+              "thresholds": [],
+              "unitFormat": "short"
+            }
+          ],
+          "scopedVars": {
+            "projects": {
+              "selected": false,
+              "text": "40390761eaf7414c8125917efc21024c",
+              "value": "40390761eaf7414c8125917efc21024c"
+            }
+          },
+          "targets": [
+            {
+              "expr": "ceilometer_cpu{project=\"$projects\"}",
+              "format": "time_series",
+              "instant": false,
+              "intervalFactor": 1,
+              "legendFormat": "{{resource}}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Project $projects",
+          "type": "grafana-polystat-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ]
+        },
+        {
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a",
+            "#4040a0"
+          ],
+          "datasource": null,
+          "description": "Click instance for drill down view",
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 12
+          },
+          "id": 28,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxPerRow": 3,
+          "options": {},
+          "polystat": {
+            "animationSpeed": 2500,
+            "columnAutoSize": true,
+            "columns": "",
+            "defaultClickThrough": "",
+            "defaultClickThroughNewTab": false,
+            "defaultClickThroughSanitize": false,
+            "displayLimit": 100,
+            "fontAutoColor": true,
+            "fontAutoScale": true,
+            "fontColor": "",
+            "fontSize": 12,
+            "fontType": "Roboto",
+            "globalDecimals": 2,
+            "globalDisplayMode": "all",
+            "globalDisplayTextTriggeredEmpty": "OK",
+            "globalOperatorName": "avg",
+            "globalUnitFormat": "short",
+            "gradientEnabled": false,
+            "hexagonSortByDirection": 1,
+            "hexagonSortByField": "name",
+            "maxMetrics": 0,
+            "polygonBorderColor": "black",
+            "polygonBorderSize": 2,
+            "polygonGlobalFillColor": "#FFEE52",
+            "radius": "",
+            "radiusAutoSize": true,
+            "rowAutoSize": true,
+            "rows": "",
+            "shape": "hexagon_pointed_top",
+            "tooltipDisplayMode": "all",
+            "tooltipDisplayTextTriggeredEmpty": "OK",
+            "tooltipFontSize": 12,
+            "tooltipFontType": "Roboto",
+            "tooltipPrimarySortDirection": 2,
+            "tooltipPrimarySortField": "thresholdLevel",
+            "tooltipSecondarySortDirection": 2,
+            "tooltipSecondarySortField": "value",
+            "tooltipTimestampEnabled": true,
+            "valueEnabled": false
+          },
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1606250232524,
+          "repeatPanelId": 17,
+          "savedComposites": [],
+          "savedOverrides": [
+            {
+              "clickThrough": "d/hvMzdgdMz/virtual-machine-view?var-project=${projects}",
+              "colors": [
+                "#299c46",
+                "#e5ac0e",
+                "#bf1b00",
+                "#4040a0"
+              ],
+              "decimals": "",
+              "enabled": true,
+              "label": "OVERRIDE 1",
+              "metricName": ".*",
+              "newTabEnabled": true,
+              "operatorName": "avg",
+              "prefix": "",
+              "sanitizeURLEnabled": true,
+              "scaledDecimals": null,
+              "suffix": "",
+              "thresholds": [],
+              "unitFormat": "short"
+            }
+          ],
+          "scopedVars": {
+            "projects": {
+              "selected": false,
+              "text": "e336c69fda3a4044aa55db034fb8a0b3",
+              "value": "e336c69fda3a4044aa55db034fb8a0b3"
+            }
+          },
+          "targets": [
+            {
+              "expr": "ceilometer_cpu{project=\"$projects\"}",
+              "format": "time_series",
+              "instant": false,
+              "intervalFactor": 1,
+              "legendFormat": "{{resource}}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Project $projects",
+          "type": "grafana-polystat-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ]
+        },
+        {
+          "collapsed": false,
+          "datasource": null,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 17
           },
           "id": 6,
           "panels": [],
-          "title": "Services",
+          "title": "Service Resource Usage",
           "type": "row"
         },
         {
@@ -81,7 +1117,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 14
+            "y": 18
           },
           "hiddenSeries": false,
           "id": 8,
@@ -168,7 +1204,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 14
+            "y": 18
           },
           "hiddenSeries": false,
           "id": 10,
@@ -255,7 +1291,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 19
+            "y": 23
           },
           "hiddenSeries": false,
           "id": 11,
@@ -342,7 +1378,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 19
+            "y": 23
           },
           "hiddenSeries": false,
           "id": 9,
@@ -429,7 +1465,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 24
+            "y": 28
           },
           "hiddenSeries": false,
           "id": 12,
@@ -517,7 +1553,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 24
+            "y": 28
           },
           "hiddenSeries": false,
           "id": 13,
@@ -604,7 +1640,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 29
+            "y": 33
           },
           "hiddenSeries": false,
           "id": 14,
@@ -692,7 +1728,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 29
+            "y": 33
           },
           "hiddenSeries": false,
           "id": 15,
@@ -768,14 +1804,67 @@ spec:
           }
         }
       ],
-      "refresh": "",
+      "refresh": "1m",
       "schemaVersion": 21,
       "style": "dark",
       "tags": [
         "CloudView"
       ],
       "templating": {
-        "list": []
+        "list": [
+          {
+            "allValue": null,
+            "current": {
+              "text": "13d97b93-63c6-4518-a885-05b95199ae9d",
+              "value": "13d97b93-63c6-4518-a885-05b95199ae9d"
+            },
+            "datasource": "STFPrometheus",
+            "definition": "label_values(ceilometer_cpu, resource)",
+            "hide": 2,
+            "includeAll": false,
+            "label": null,
+            "multi": false,
+            "name": "instances",
+            "options": [],
+            "query": "label_values(ceilometer_cpu, resource)",
+            "refresh": 2,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 0,
+            "tagValuesQuery": "",
+            "tags": [],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+          },
+          {
+            "allValue": null,
+            "current": {
+              "text": "All",
+              "value": [
+                "$__all"
+              ]
+            },
+            "datasource": "STFPrometheus",
+            "definition": "label_values(ceilometer_cpu,project)",
+            "hide": 2,
+            "includeAll": true,
+            "label": null,
+            "multi": true,
+            "name": "projects",
+            "options": [],
+            "query": "label_values(ceilometer_cpu,project)",
+            "refresh": 2,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 0,
+            "tagValuesQuery": "",
+            "tags": [],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+          }
+        ]
       },
       "time": {
         "from": "now-6h",
@@ -798,5 +1887,5 @@ spec:
       "timezone": "",
       "title": "Cloud View",
       "uid": "IHqhpjPZz",
-      "version": 17
+      "version": 86
     }
