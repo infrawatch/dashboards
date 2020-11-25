@@ -25,22 +25,30 @@ spec:
             "name": "Annotations & Alerts",
             "showIn": 0,
             "type": "dashboard"
+          },
+          {
+            "datasource": "es_ceilometer",
+            "enable": true,
+            "hide": false,
+            "iconColor": "rgba(255, 96, 96, 1)",
+            "limit": 100,
+            "name": "volume_alert",
+            "query": "_index:ceilometer_volume_*",
+            "showIn": 0,
+            "tags": [],
+            "textField": "Volume Event",
+            "timeEndField": "",
+            "timeField": "payload.generated",
+            "type": "tags"
           }
         ]
       },
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 2,
-      "iteration": 1606250232524,
-      "links": [
-        {
-          "asDropdown": true,
-          "icon": "external link",
-          "tags": [],
-          "type": "dashboards"
-        }
-      ],
+      "id": 1,
+      "iteration": 1606335117051,
+      "links": [],
       "panels": [
         {
           "cacheTimeout": null,
@@ -58,9 +66,9 @@ spec:
             "mode": "opacity"
           },
           "dataFormat": "tsbuckets",
-          "datasource": "ceilometer_compute_instance",
+          "datasource": "es_collectd",
           "gridPos": {
-            "h": 7,
+            "h": 8,
             "w": 15,
             "x": 0,
             "y": 0
@@ -221,7 +229,7 @@ spec:
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "API Statuses",
+          "title": "Uptime",
           "tooltip": {
             "show": true,
             "showHistogram": false
@@ -246,28 +254,178 @@ spec:
           "yBucketSize": null
         },
         {
-          "dashboardFilter": "",
-          "dashboardTags": [],
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": null,
-          "folderId": null,
+          "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
-            "h": 11,
+            "h": 6,
             "w": 9,
             "x": 15,
             "y": 0
           },
-          "id": 4,
-          "limit": 10,
-          "nameFilter": "",
-          "onlyAlertsOnDashboard": false,
-          "options": {},
-          "show": "current",
-          "sortOrder": 1,
-          "stateFilter": [],
+          "hiddenSeries": false,
+          "id": 42,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "topk(3, sum by (plugin_instance, host) (collectd_libpodstats_pod_memory))",
+              "legendFormat": "{{plugin_instance}} on {{host}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
           "timeFrom": null,
+          "timeRegions": [],
           "timeShift": null,
-          "title": "All Alerts",
-          "type": "alertlist"
+          "title": "Top 3 Memory Consumers",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 15,
+            "y": 6
+          },
+          "hiddenSeries": false,
+          "id": 43,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "topk(3, avg_over_time(collectd_libpodstats_pod_cpu_percent[10m]))",
+              "legendFormat": "{{plugin_instance}} on {{host}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Top 3 CPU Consumers",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
           "cacheTimeout": null,
@@ -278,7 +436,7 @@ spec:
             "rgba(237, 129, 40, 0.89)",
             "#d44a3a"
           ],
-          "datasource": "ceilometer_compute_instance",
+          "datasource": "es_collectd",
           "decimals": null,
           "format": "percentunit",
           "gauge": {
@@ -292,7 +450,7 @@ spec:
             "h": 4,
             "w": 3,
             "x": 0,
-            "y": 7
+            "y": 8
           },
           "id": 29,
           "interval": null,
@@ -386,7 +544,7 @@ spec:
             "rgba(237, 129, 40, 0.89)",
             "#d44a3a"
           ],
-          "datasource": "ceilometer_compute_instance",
+          "datasource": "es_collectd",
           "decimals": null,
           "format": "percentunit",
           "gauge": {
@@ -400,7 +558,7 @@ spec:
             "h": 4,
             "w": 3,
             "x": 3,
-            "y": 7
+            "y": 8
           },
           "id": 30,
           "interval": null,
@@ -494,7 +652,7 @@ spec:
             "rgba(237, 129, 40, 0.89)",
             "#d44a3a"
           ],
-          "datasource": "ceilometer_compute_instance",
+          "datasource": "es_collectd",
           "decimals": null,
           "format": "percentunit",
           "gauge": {
@@ -508,7 +666,7 @@ spec:
             "h": 4,
             "w": 3,
             "x": 6,
-            "y": 7
+            "y": 8
           },
           "id": 31,
           "interval": null,
@@ -602,7 +760,7 @@ spec:
             "rgba(237, 129, 40, 0.89)",
             "#d44a3a"
           ],
-          "datasource": "ceilometer_compute_instance",
+          "datasource": "es_collectd",
           "decimals": null,
           "format": "percentunit",
           "gauge": {
@@ -616,7 +774,7 @@ spec:
             "h": 4,
             "w": 3,
             "x": 9,
-            "y": 7
+            "y": 8
           },
           "id": 26,
           "interval": null,
@@ -710,7 +868,7 @@ spec:
             "rgba(237, 129, 40, 0.89)",
             "#d44a3a"
           ],
-          "datasource": "ceilometer_compute_instance",
+          "datasource": "es_collectd",
           "decimals": null,
           "format": "percentunit",
           "gauge": {
@@ -724,7 +882,7 @@ spec:
             "h": 4,
             "w": 3,
             "x": 12,
-            "y": 7
+            "y": 8
           },
           "id": 32,
           "interval": null,
@@ -816,7 +974,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 11
+            "y": 12
           },
           "id": 23,
           "panels": [],
@@ -830,13 +988,13 @@ spec:
             "#d44a3a",
             "#4040a0"
           ],
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "Click instance for drill down view",
           "gridPos": {
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 12
+            "y": 13
           },
           "id": 17,
           "links": [],
@@ -869,7 +1027,7 @@ spec:
             "globalDecimals": 2,
             "globalDisplayMode": "all",
             "globalDisplayTextTriggeredEmpty": "OK",
-            "globalOperatorName": "avg",
+            "globalOperatorName": "current",
             "globalUnitFormat": "short",
             "gradientEnabled": false,
             "hexagonSortByDirection": 1,
@@ -937,9 +1095,6 @@ spec:
           "targets": [
             {
               "expr": "ceilometer_cpu{project=\"$projects\"}",
-              "format": "time_series",
-              "instant": false,
-              "intervalFactor": 1,
               "legendFormat": "{{resource}}",
               "refId": "A"
             }
@@ -963,15 +1118,15 @@ spec:
             "#d44a3a",
             "#4040a0"
           ],
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "Click instance for drill down view",
           "gridPos": {
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 12
+            "y": 13
           },
-          "id": 28,
+          "id": 44,
           "links": [],
           "mappingType": 1,
           "mappingTypes": [
@@ -1036,7 +1191,7 @@ spec:
           ],
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1606250232524,
+          "repeatIteration": 1606335117051,
           "repeatPanelId": 17,
           "savedComposites": [],
           "savedOverrides": [
@@ -1072,9 +1227,6 @@ spec:
           "targets": [
             {
               "expr": "ceilometer_cpu{project=\"$projects\"}",
-              "format": "time_series",
-              "instant": false,
-              "intervalFactor": 1,
               "legendFormat": "{{resource}}",
               "refId": "A"
             }
@@ -1098,7 +1250,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 17
+            "y": 18
           },
           "id": 6,
           "panels": [],
@@ -1117,7 +1269,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 18
+            "y": 19
           },
           "hiddenSeries": false,
           "id": 8,
@@ -1204,7 +1356,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 18
+            "y": 19
           },
           "hiddenSeries": false,
           "id": 10,
@@ -1291,7 +1443,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 23
+            "y": 24
           },
           "hiddenSeries": false,
           "id": 11,
@@ -1378,7 +1530,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 23
+            "y": 24
           },
           "hiddenSeries": false,
           "id": 9,
@@ -1465,7 +1617,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 28
+            "y": 29
           },
           "hiddenSeries": false,
           "id": 12,
@@ -1553,7 +1705,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 28
+            "y": 29
           },
           "hiddenSeries": false,
           "id": 13,
@@ -1640,7 +1792,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 33
+            "y": 34
           },
           "hiddenSeries": false,
           "id": 14,
@@ -1728,7 +1880,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 33
+            "y": 34
           },
           "hiddenSeries": false,
           "id": 15,
@@ -1802,9 +1954,1102 @@ spec:
             "align": false,
             "alignLevel": null
           }
+        },
+        {
+          "collapsed": false,
+          "datasource": null,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 39
+          },
+          "id": 34,
+          "panels": [],
+          "title": "Cloud Events",
+          "type": "row"
+        },
+        {
+          "columns": [
+            {
+              "text": "payload.generated",
+              "value": "payload.generated"
+            },
+            {
+              "text": "payload.event_type",
+              "value": "payload.event_type"
+            },
+            {
+              "text": "payload.traits.name",
+              "value": "payload.traits.name"
+            },
+            {
+              "text": "payload.traits.tenant_id",
+              "value": "payload.traits.tenant_id"
+            },
+            {
+              "text": "payload.traits.user_id",
+              "value": "payload.traits.user_id"
+            },
+            {
+              "text": "payload.traits.project_id",
+              "value": "payload.traits.project_id"
+            },
+            {
+              "text": "payload.traits.service",
+              "value": "payload.traits.service"
+            },
+            {
+              "text": "priority",
+              "value": "priority"
+            }
+          ],
+          "datasource": "es_ceilometer",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 6,
+            "w": 24,
+            "x": 0,
+            "y": 40
+          },
+          "id": 35,
+          "options": {},
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Time",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "payload.generated",
+              "type": "date"
+            },
+            {
+              "alias": "Event",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.event_type",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Resource Name",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.name",
+              "thresholds": [],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": [
+                {
+                  "text": "-",
+                  "value": ""
+                }
+              ]
+            },
+            {
+              "alias": "Tenant ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.tenant_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "User ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.user_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Project ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.project_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Service",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.service",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Priority",
+              "colorMode": null,
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "priority",
+              "preserveFormat": false,
+              "sanitize": false,
+              "thresholds": [
+                "0",
+                "1"
+              ],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
+            }
+          ],
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [],
+              "metrics": [
+                {
+                  "field": "payload.traits.size",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {
+                    "size": 500
+                  },
+                  "type": "raw_document"
+                }
+              ],
+              "query": "_index: ceilometer_network_*",
+              "refId": "A",
+              "timeField": "payload.generated"
+            },
+            {
+              "bucketAggs": [],
+              "metrics": [
+                {
+                  "field": "select field",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {
+                    "size": 500
+                  },
+                  "type": "raw_document"
+                }
+              ],
+              "query": "_index: ceilometer_subnet_*",
+              "refId": "C",
+              "timeField": "payload.generated"
+            },
+            {
+              "bucketAggs": [],
+              "metrics": [
+                {
+                  "field": "select field",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {
+                    "size": 500
+                  },
+                  "type": "raw_document"
+                }
+              ],
+              "query": "_index: ceilometer_port_*",
+              "refId": "B",
+              "timeField": "payload.generated"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Networking",
+          "transform": "json",
+          "type": "table"
+        },
+        {
+          "columns": [
+            {
+              "text": "payload.generated",
+              "value": "payload.generated"
+            },
+            {
+              "text": "payload.event_type",
+              "value": "payload.event_type"
+            },
+            {
+              "text": "payload.traits.tenant_id",
+              "value": "payload.traits.tenant_id"
+            },
+            {
+              "text": "payload.traits.user_id",
+              "value": "payload.traits.user_id"
+            },
+            {
+              "text": "payload.traits.project_id",
+              "value": "payload.traits.project_id"
+            },
+            {
+              "text": "payload.traits.service",
+              "value": "payload.traits.service"
+            },
+            {
+              "text": "priority",
+              "value": "priority"
+            },
+            {
+              "text": "payload.traits.resource_id",
+              "value": "payload.traits.resource_id"
+            }
+          ],
+          "datasource": "es_ceilometer",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 46
+          },
+          "id": 36,
+          "options": {},
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Time",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "payload.generated",
+              "type": "date"
+            },
+            {
+              "alias": "Event",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.event_type",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Resource Name",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.resource_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Tenant ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.tenant_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "User ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.user_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Project ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.project_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Service",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.service",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Priority",
+              "colorMode": null,
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "priority",
+              "preserveFormat": false,
+              "sanitize": false,
+              "thresholds": [
+                "0",
+                "1"
+              ],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
+            }
+          ],
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [],
+              "metrics": [
+                {
+                  "field": "payload.traits.size",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {
+                    "size": 500
+                  },
+                  "type": "raw_document"
+                }
+              ],
+              "query": "_index: ceilometer_volume_*",
+              "refId": "A",
+              "timeField": "payload.generated"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Volumes",
+          "transform": "json",
+          "type": "table"
+        },
+        {
+          "columns": [
+            {
+              "text": "payload.generated",
+              "value": "payload.generated"
+            },
+            {
+              "text": "payload.event_type",
+              "value": "payload.event_type"
+            },
+            {
+              "text": "payload.traits.tenant_id",
+              "value": "payload.traits.tenant_id"
+            },
+            {
+              "text": "payload.traits.user_id",
+              "value": "payload.traits.user_id"
+            },
+            {
+              "text": "payload.traits.project_id",
+              "value": "payload.traits.project_id"
+            },
+            {
+              "text": "payload.traits.service",
+              "value": "payload.traits.service"
+            },
+            {
+              "text": "priority",
+              "value": "priority"
+            },
+            {
+              "text": "payload.traits.resource_id",
+              "value": "payload.traits.resource_id"
+            }
+          ],
+          "datasource": "es_ceilometer",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 51
+          },
+          "id": 37,
+          "options": {},
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Time",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "payload.generated",
+              "type": "date"
+            },
+            {
+              "alias": "Event",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.event_type",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Resource ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.resource_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Tenant ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.tenant_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "User ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.user_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Project ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.project_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Service",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.service",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Priority",
+              "colorMode": null,
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "priority",
+              "preserveFormat": false,
+              "sanitize": false,
+              "thresholds": [
+                "0",
+                "1"
+              ],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
+            }
+          ],
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [],
+              "metrics": [
+                {
+                  "field": "payload.traits.size",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {
+                    "size": 500
+                  },
+                  "type": "raw_document"
+                }
+              ],
+              "query": "_index: ceilometer_compute_*",
+              "refId": "A",
+              "timeField": "payload.generated"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Compute",
+          "transform": "json",
+          "type": "table"
+        },
+        {
+          "columns": [
+            {
+              "text": "payload.generated",
+              "value": "payload.generated"
+            },
+            {
+              "text": "payload.event_type",
+              "value": "payload.event_type"
+            },
+            {
+              "text": "payload.traits.service",
+              "value": "payload.traits.service"
+            },
+            {
+              "text": "priority",
+              "value": "priority"
+            },
+            {
+              "text": "payload.traits.resource_id",
+              "value": "payload.traits.resource_id"
+            }
+          ],
+          "datasource": "es_ceilometer",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 56
+          },
+          "id": 38,
+          "options": {},
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Time",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "payload.generated",
+              "type": "date"
+            },
+            {
+              "alias": "Event",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.event_type",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Resource ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.resource_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Tenant ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.tenant_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "User ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.user_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Project ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.project_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Service",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.service",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Priority",
+              "colorMode": null,
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "priority",
+              "preserveFormat": false,
+              "sanitize": false,
+              "thresholds": [
+                "0",
+                "1"
+              ],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
+            }
+          ],
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [],
+              "metrics": [
+                {
+                  "field": "payload.traits.size",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {
+                    "size": 500
+                  },
+                  "type": "raw_document"
+                }
+              ],
+              "query": "_index: ceilometer_identity_*",
+              "refId": "A",
+              "timeField": "payload.generated"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Identity",
+          "transform": "json",
+          "type": "table"
+        },
+        {
+          "columns": [
+            {
+              "text": "payload.generated",
+              "value": "payload.generated"
+            },
+            {
+              "text": "payload.event_type",
+              "value": "payload.event_type"
+            },
+            {
+              "text": "payload.traits.user_id",
+              "value": "payload.traits.user_id"
+            },
+            {
+              "text": "payload.traits.project_id",
+              "value": "payload.traits.project_id"
+            },
+            {
+              "text": "payload.traits.service",
+              "value": "payload.traits.service"
+            },
+            {
+              "text": "priority",
+              "value": "priority"
+            },
+            {
+              "text": "payload.traits.resource_id",
+              "value": "payload.traits.resource_id"
+            },
+            {
+              "text": "payload.traits.status",
+              "value": "payload.traits.status"
+            },
+            {
+              "text": "payload.traits.name",
+              "value": "payload.traits.name"
+            }
+          ],
+          "datasource": "es_ceilometer",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 61
+          },
+          "id": 39,
+          "options": {},
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Time",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "payload.generated",
+              "type": "date"
+            },
+            {
+              "alias": "Event",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.event_type",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Resource ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.resource_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Tenant ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.tenant_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "User ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.user_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Project ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.project_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Service",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.service",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Priority",
+              "colorMode": null,
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "priority",
+              "preserveFormat": false,
+              "sanitize": false,
+              "thresholds": [
+                "0",
+                "1"
+              ],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
+            },
+            {
+              "alias": "Status",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.status",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Name",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "payload.traits.name",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [],
+              "metrics": [
+                {
+                  "field": "payload.traits.size",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {
+                    "size": 500
+                  },
+                  "type": "raw_document"
+                }
+              ],
+              "query": "_index: ceilometer_image*",
+              "refId": "A",
+              "timeField": "payload.generated"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Images",
+          "transform": "json",
+          "type": "table"
         }
       ],
-      "refresh": "1m",
+      "refresh": "15m",
       "schemaVersion": 21,
       "style": "dark",
       "tags": [
@@ -1812,31 +3057,6 @@ spec:
       ],
       "templating": {
         "list": [
-          {
-            "allValue": null,
-            "current": {
-              "text": "13d97b93-63c6-4518-a885-05b95199ae9d",
-              "value": "13d97b93-63c6-4518-a885-05b95199ae9d"
-            },
-            "datasource": "STFPrometheus",
-            "definition": "label_values(ceilometer_cpu, resource)",
-            "hide": 2,
-            "includeAll": false,
-            "label": null,
-            "multi": false,
-            "name": "instances",
-            "options": [],
-            "query": "label_values(ceilometer_cpu, resource)",
-            "refresh": 2,
-            "regex": "",
-            "skipUrlSync": false,
-            "sort": 0,
-            "tagValuesQuery": "",
-            "tags": [],
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
-          },
           {
             "allValue": null,
             "current": {
@@ -1867,7 +3087,7 @@ spec:
         ]
       },
       "time": {
-        "from": "now-6h",
+        "from": "now-12h",
         "to": "now"
       },
       "timepicker": {
@@ -1887,5 +3107,5 @@ spec:
       "timezone": "",
       "title": "Cloud View",
       "uid": "IHqhpjPZz",
-      "version": 86
+      "version": 53
     }

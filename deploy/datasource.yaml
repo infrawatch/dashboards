@@ -5,7 +5,7 @@ metadata:
   namespace: service-telemetry
 spec:
   datasources:
-    - name: STFElasticsearch
+    - name: es_collectd
       access: proxy
       editable: true
       isDefault: false
@@ -14,12 +14,27 @@ spec:
       basicAuth: true
       basicAuthUser: elastic
       basicAuthPassword: ES_PASSWORD
-      database: collectd_checks
+      database: collectd_*
       jsonData:
         tlsSkipVerify: true
         timeField: startsAt
         esVersion: 70
         
+    - name: es_ceilometer
+      access: proxy
+      editable: true
+      isDefault: false
+      url: 'https://elasticsearch-es-http:9200'
+      type: elasticsearch
+      basicAuth: true
+      basicAuthUser: elastic
+      basicAuthPassword: ES_PASSWORD
+      database: ceilometer_*
+      jsonData:
+        tlsSkipVerify: true
+        timeField: startsAt
+        esVersion: 70
+
     - name: STFPrometheus
       type: prometheus
       access: proxy
