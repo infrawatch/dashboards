@@ -29,7 +29,7 @@ spec:
           {
             "datasource": "es_ceilometer",
             "enable": true,
-            "hide": false,
+            "hide": true,
             "iconColor": "rgba(255, 96, 96, 1)",
             "limit": 100,
             "name": "volume_alert",
@@ -47,7 +47,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 1,
-      "iteration": 1606335117051,
+      "iteration": 1606748274752,
       "links": [],
       "panels": [
         {
@@ -294,7 +294,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "topk(3, sum by (plugin_instance, host) (collectd_libpodstats_pod_memory))",
+              "expr": "topk($top, sum by (plugin_instance, host) (collectd_libpodstats_pod_memory))",
               "legendFormat": "{{plugin_instance}} on {{host}}",
               "refId": "A"
             }
@@ -303,7 +303,7 @@ spec:
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Top 3 Memory Consumers",
+          "title": "Top $top Memory Consumers",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -381,7 +381,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "topk(3, avg_over_time(collectd_libpodstats_pod_cpu_percent[10m]))",
+              "expr": "topk($top, avg_over_time(collectd_libpodstats_pod_cpu_percent[10m]))",
               "legendFormat": "{{plugin_instance}} on {{host}}",
               "refId": "A"
             }
@@ -390,7 +390,7 @@ spec:
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Top 3 CPU Consumers",
+          "title": "Top $top CPU Consumers",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1157,7 +1157,7 @@ spec:
             "globalDecimals": 2,
             "globalDisplayMode": "all",
             "globalDisplayTextTriggeredEmpty": "OK",
-            "globalOperatorName": "avg",
+            "globalOperatorName": "current",
             "globalUnitFormat": "short",
             "gradientEnabled": false,
             "hexagonSortByDirection": 1,
@@ -1191,7 +1191,7 @@ spec:
           ],
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1606335117051,
+          "repeatIteration": 1606748274752,
           "repeatPanelId": 17,
           "savedComposites": [],
           "savedOverrides": [
@@ -3083,11 +3083,130 @@ spec:
             "tagsQuery": "",
             "type": "query",
             "useTags": false
+          },
+          {
+            "allValue": null,
+            "current": {
+              "selected": false,
+              "tags": [],
+              "text": "8",
+              "value": "8"
+            },
+            "hide": 0,
+            "includeAll": false,
+            "label": null,
+            "multi": false,
+            "name": "top",
+            "options": [
+              {
+                "selected": false,
+                "text": "1",
+                "value": "1"
+              },
+              {
+                "selected": false,
+                "text": "2",
+                "value": "2"
+              },
+              {
+                "selected": false,
+                "text": "3",
+                "value": "3"
+              },
+              {
+                "selected": false,
+                "text": "4",
+                "value": "4"
+              },
+              {
+                "selected": false,
+                "text": "5",
+                "value": "5"
+              },
+              {
+                "selected": false,
+                "text": "6",
+                "value": "6"
+              },
+              {
+                "selected": false,
+                "text": "7",
+                "value": "7"
+              },
+              {
+                "selected": true,
+                "text": "8",
+                "value": "8"
+              },
+              {
+                "selected": false,
+                "text": "9",
+                "value": "9"
+              },
+              {
+                "selected": false,
+                "text": "10",
+                "value": "10"
+              },
+              {
+                "selected": false,
+                "text": "11",
+                "value": "11"
+              },
+              {
+                "selected": false,
+                "text": "12",
+                "value": "12"
+              },
+              {
+                "selected": false,
+                "text": "13",
+                "value": "13"
+              },
+              {
+                "selected": false,
+                "text": "14",
+                "value": "14"
+              },
+              {
+                "selected": false,
+                "text": "15",
+                "value": "15"
+              },
+              {
+                "selected": false,
+                "text": "16",
+                "value": "16"
+              },
+              {
+                "selected": false,
+                "text": "17",
+                "value": "17"
+              },
+              {
+                "selected": false,
+                "text": "18",
+                "value": "18"
+              },
+              {
+                "selected": false,
+                "text": "19",
+                "value": "19"
+              },
+              {
+                "selected": false,
+                "text": "20",
+                "value": "20"
+              }
+            ],
+            "query": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+            "skipUrlSync": false,
+            "type": "custom"
           }
         ]
       },
       "time": {
-        "from": "now-12h",
+        "from": "now-6h",
         "to": "now"
       },
       "timepicker": {
@@ -3107,5 +3226,5 @@ spec:
       "timezone": "",
       "title": "Cloud View",
       "uid": "IHqhpjPZz",
-      "version": 53
+      "version": 62
     }
