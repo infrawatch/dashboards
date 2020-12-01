@@ -36,8 +36,24 @@ spec:
             "query": "_index:ceilometer_volume_*",
             "showIn": 0,
             "tags": [],
-            "textField": "Volume Event",
+            "tagsField": "payload.traits",
+            "textField": "payload.event_type",
             "timeEndField": "",
+            "timeField": "payload.generated",
+            "type": "tags"
+          },
+          {
+            "datasource": "es_ceilometer",
+            "enable": false,
+            "hide": true,
+            "iconColor": "rgba(255, 96, 96, 1)",
+            "limit": 100,
+            "name": "compute_alert",
+            "query": "_index:ceilometer_compute*",
+            "showIn": 0,
+            "tags": [],
+            "tagsField": "payload.traits",
+            "textField": "payload.event_type",
             "timeField": "payload.generated",
             "type": "tags"
           }
@@ -46,8 +62,8 @@ spec:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 1,
-      "iteration": 1606748274752,
+      "id": 2,
+      "iteration": 1606855858759,
       "links": [],
       "panels": [
         {
@@ -1191,7 +1207,7 @@ spec:
           ],
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1606748274752,
+          "repeatIteration": 1606855858759,
           "repeatPanelId": 17,
           "savedComposites": [],
           "savedOverrides": [
@@ -3226,5 +3242,5 @@ spec:
       "timezone": "",
       "title": "Cloud View",
       "uid": "IHqhpjPZz",
-      "version": 62
+      "version": 5
     }
