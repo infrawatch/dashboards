@@ -19,7 +19,6 @@ spec:
         tlsSkipVerify: true
         timeField: startsAt
         esVersion: 70
-        
     - name: es_ceilometer
       access: proxy
       editable: true
@@ -34,14 +33,4 @@ spec:
         tlsSkipVerify: true
         timeField: startsAt
         esVersion: 70
-
-    - name: STFPrometheus
-      type: prometheus
-      access: proxy
-      editable: true
-      isDefault: true
-      jsonData:
-        timeInterval: 5s
-      url: 'http://prometheus-operated:9090'
-      version: 1
   name: service-telemetry-datasources.yaml
