@@ -20,7 +20,7 @@ spec:
             "type": "dashboard"
           },
           {
-            "datasource": "ceilometer_compute_instance",
+            "datasource": "es_ceilometer",
             "enable": true,
             "hide": false,
             "iconColor": "rgba(255, 96, 96, 1)",
