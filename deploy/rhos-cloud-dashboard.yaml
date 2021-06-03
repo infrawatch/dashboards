@@ -62,8 +62,8 @@ spec:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 2,
-      "iteration": 1606855858759,
+      "id": 1,
+      "iteration": 1622743618477,
       "links": [],
       "panels": [
         {
@@ -1008,7 +1008,7 @@ spec:
           "description": "Click instance for drill down view",
           "gridPos": {
             "h": 5,
-            "w": 12,
+            "w": 24,
             "x": 0,
             "y": 13
           },
@@ -1104,146 +1104,14 @@ spec:
           "scopedVars": {
             "projects": {
               "selected": false,
-              "text": "40390761eaf7414c8125917efc21024c",
-              "value": "40390761eaf7414c8125917efc21024c"
+              "text": "89ec46e9961f4b98a5a34cc3b0ee28d5",
+              "value": "89ec46e9961f4b98a5a34cc3b0ee28d5"
             }
           },
           "targets": [
             {
-              "expr": "ceilometer_cpu{project=\"$projects\"}",
-              "legendFormat": "{{resource}}",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Project $projects",
-          "type": "grafana-polystat-panel",
-          "valueMaps": [
-            {
-              "op": "=",
-              "text": "N/A",
-              "value": "null"
-            }
-          ]
-        },
-        {
-          "colors": [
-            "#299c46",
-            "rgba(237, 129, 40, 0.89)",
-            "#d44a3a",
-            "#4040a0"
-          ],
-          "datasource": "STFPrometheus",
-          "description": "Click instance for drill down view",
-          "gridPos": {
-            "h": 5,
-            "w": 12,
-            "x": 12,
-            "y": 13
-          },
-          "id": 44,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
-            {
-              "name": "value to text",
-              "value": 1
-            },
-            {
-              "name": "range to text",
-              "value": 2
-            }
-          ],
-          "maxPerRow": 3,
-          "options": {},
-          "polystat": {
-            "animationSpeed": 2500,
-            "columnAutoSize": true,
-            "columns": "",
-            "defaultClickThrough": "",
-            "defaultClickThroughNewTab": false,
-            "defaultClickThroughSanitize": false,
-            "displayLimit": 100,
-            "fontAutoColor": true,
-            "fontAutoScale": true,
-            "fontColor": "",
-            "fontSize": 12,
-            "fontType": "Roboto",
-            "globalDecimals": 2,
-            "globalDisplayMode": "all",
-            "globalDisplayTextTriggeredEmpty": "OK",
-            "globalOperatorName": "current",
-            "globalUnitFormat": "short",
-            "gradientEnabled": false,
-            "hexagonSortByDirection": 1,
-            "hexagonSortByField": "name",
-            "maxMetrics": 0,
-            "polygonBorderColor": "black",
-            "polygonBorderSize": 2,
-            "polygonGlobalFillColor": "#FFEE52",
-            "radius": "",
-            "radiusAutoSize": true,
-            "rowAutoSize": true,
-            "rows": "",
-            "shape": "hexagon_pointed_top",
-            "tooltipDisplayMode": "all",
-            "tooltipDisplayTextTriggeredEmpty": "OK",
-            "tooltipFontSize": 12,
-            "tooltipFontType": "Roboto",
-            "tooltipPrimarySortDirection": 2,
-            "tooltipPrimarySortField": "thresholdLevel",
-            "tooltipSecondarySortDirection": 2,
-            "tooltipSecondarySortField": "value",
-            "tooltipTimestampEnabled": true,
-            "valueEnabled": false
-          },
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1606855858759,
-          "repeatPanelId": 17,
-          "savedComposites": [],
-          "savedOverrides": [
-            {
-              "clickThrough": "d/hvMzdgdMz/virtual-machine-view?var-project=${projects}",
-              "colors": [
-                "#299c46",
-                "#e5ac0e",
-                "#bf1b00",
-                "#4040a0"
-              ],
-              "decimals": "",
-              "enabled": true,
-              "label": "OVERRIDE 1",
-              "metricName": ".*",
-              "newTabEnabled": true,
-              "operatorName": "avg",
-              "prefix": "",
-              "sanitizeURLEnabled": true,
-              "scaledDecimals": null,
-              "suffix": "",
-              "thresholds": [],
-              "unitFormat": "short"
-            }
-          ],
-          "scopedVars": {
-            "projects": {
-              "selected": false,
-              "text": "e336c69fda3a4044aa55db034fb8a0b3",
-              "value": "e336c69fda3a4044aa55db034fb8a0b3"
-            }
-          },
-          "targets": [
-            {
-              "expr": "ceilometer_cpu{project=\"$projects\"}",
-              "legendFormat": "{{resource}}",
+              "expr": "label_replace(collectd_virt_if_octets_rx_total, \"resource\", \"$1\", \"host\", \".+:(.+):.+\") + on(resource) group_right(plugin_instance) ceilometer_cpu{project=\"$projects\"}",
+              "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
           ],
@@ -3242,5 +3110,5 @@ spec:
       "timezone": "",
       "title": "Cloud View",
       "uid": "IHqhpjPZz",
-      "version": 5
+      "version": 7
     }
