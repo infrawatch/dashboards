@@ -3,7 +3,7 @@ kind: GrafanaDashboard
 metadata:
   labels:
     app: grafana
-  name: rhos-cloud-dashboard
+  name: rhos-cloud-dashboard-1.2
   namespace: service-telemetry
 spec:
   name: rhos-cloud-dashboard.json
@@ -63,7 +63,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 1,
-      "iteration": 1625603069635,
+      "iteration": 1622743618477,
       "links": [],
       "panels": [
         {
@@ -82,7 +82,7 @@ spec:
             "mode": "opacity"
           },
           "dataFormat": "tsbuckets",
-          "datasource": null,
+          "datasource": "es_collectd",
           "gridPos": {
             "h": 8,
             "w": 15,
@@ -93,79 +93,154 @@ spec:
           "hideZeroBuckets": false,
           "highlightCards": true,
           "id": 21,
-          "interval": "2m",
           "legend": {
             "show": false
           },
           "links": [],
+          "options": {},
           "pluginVersion": "6.5.1",
           "reverseYBuckets": false,
           "targets": [
             {
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"glance_api\"})",
-              "format": "heatmap",
-              "hide": false,
-              "instant": false,
-              "interval": "",
-              "intervalFactor": 1,
-              "legendFormat": "glance_api",
-              "refId": "D"
-            },
-            {
-              "alias": "",
+              "alias": "glance_api",
               "bucketAggs": [
                 {
                   "field": "startsAt",
                   "id": "2",
                   "settings": {
-                    "interval": "auto"
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
                   },
                   "type": "date_histogram"
                 }
               ],
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"nova_api\"})",
-              "format": "heatmap",
-              "instant": false,
-              "interval": "",
-              "legendFormat": "nova_api",
               "metrics": [
                 {
+                  "field": "annotations.output.healthy",
                   "id": "1",
-                  "type": "count"
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
                 }
               ],
-              "query": "",
+              "query": "annotations.output.service:glance_api",
+              "refId": "B",
+              "timeField": "startsAt"
+            },
+            {
+              "alias": "nova_api",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "pipelineVariables": [
+                    {
+                      "name": "",
+                      "pipelineAgg": "select metric"
+                    }
+                  ],
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:nova_api",
               "refId": "A",
               "timeField": "startsAt"
             },
             {
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"heat_api\"})",
-              "format": "heatmap",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "heat_api",
-              "refId": "B"
+              "alias": "heat_api",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:heat_api",
+              "refId": "C",
+              "timeField": "startsAt"
             },
             {
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"neutron_api\"})",
-              "format": "heatmap",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "neutron_api",
-              "refId": "C"
+              "alias": "neutron_api",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:neutron_api",
+              "refId": "D",
+              "timeField": "startsAt"
             },
             {
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"placement_api\"})",
-              "format": "heatmap",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "placement_api",
-              "refId": "E"
+              "alias": "placement_api",
+              "bucketAggs": [
+                {
+                  "field": "startsAt",
+                  "id": "2",
+                  "settings": {
+                    "interval": "2m",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "metrics": [
+                {
+                  "field": "annotations.output.healthy",
+                  "id": "1",
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
+                }
+              ],
+              "query": "annotations.output.service:placement_api",
+              "refId": "E",
+              "timeField": "startsAt"
             }
           ],
           "timeFrom": null,
@@ -200,12 +275,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -229,10 +298,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -294,12 +362,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -323,10 +385,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -384,39 +445,22 @@ spec:
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "text": "N/A"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "percentunit"
-            },
-            "overrides": []
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "es_collectd",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
           },
           "gridPos": {
             "h": 4,
@@ -427,23 +471,42 @@ spec:
           "id": 29,
           "interval": null,
           "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": false
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
             },
-            "text": {},
-            "textMode": "auto"
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
           },
-          "pluginVersion": "8.0.4",
+          "tableColumn": "",
           "targets": [
             {
               "alias": "",
@@ -452,66 +515,60 @@ spec:
                   "field": "startsAt",
                   "id": "2",
                   "settings": {
-                    "interval": "auto"
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
                   },
                   "type": "date_histogram"
                 }
               ],
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"placement_api\"})",
-              "interval": "",
-              "legendFormat": "",
               "metrics": [
                 {
+                  "field": "annotations.output.healthy",
                   "id": "1",
-                  "type": "count"
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
                 }
               ],
-              "query": "",
+              "query": "annotations.output.service:placement_api",
               "refId": "A",
               "timeField": "startsAt"
             }
           ],
+          "thresholds": "",
           "timeFrom": null,
           "timeShift": null,
           "title": "Uptime placement_api",
-          "type": "stat"
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "text": "N/A"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "percentunit"
-            },
-            "overrides": []
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "es_collectd",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
           },
           "gridPos": {
             "h": 4,
@@ -522,23 +579,42 @@ spec:
           "id": 30,
           "interval": null,
           "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": false
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
             },
-            "text": {},
-            "textMode": "auto"
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
           },
-          "pluginVersion": "8.0.4",
+          "tableColumn": "",
           "targets": [
             {
               "alias": "",
@@ -547,66 +623,60 @@ spec:
                   "field": "startsAt",
                   "id": "2",
                   "settings": {
-                    "interval": "auto"
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
                   },
                   "type": "date_histogram"
                 }
               ],
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"neutron_api\"})",
-              "interval": "",
-              "legendFormat": "",
               "metrics": [
                 {
+                  "field": "annotations.output.healthy",
                   "id": "1",
-                  "type": "count"
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
                 }
               ],
-              "query": "",
+              "query": "annotations.output.service:neutron_api",
               "refId": "A",
               "timeField": "startsAt"
             }
           ],
+          "thresholds": "",
           "timeFrom": null,
           "timeShift": null,
           "title": "Uptime neutron_api",
-          "type": "stat"
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "text": "N/A"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "percentunit"
-            },
-            "overrides": []
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "es_collectd",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
           },
           "gridPos": {
             "h": 4,
@@ -617,23 +687,42 @@ spec:
           "id": 31,
           "interval": null,
           "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": false
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
             },
-            "text": {},
-            "textMode": "auto"
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
           },
-          "pluginVersion": "8.0.4",
+          "tableColumn": "",
           "targets": [
             {
               "alias": "",
@@ -642,66 +731,60 @@ spec:
                   "field": "startsAt",
                   "id": "2",
                   "settings": {
-                    "interval": "auto"
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
                   },
                   "type": "date_histogram"
                 }
               ],
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"heat_api\"})",
-              "interval": "",
-              "legendFormat": "",
               "metrics": [
                 {
+                  "field": "annotations.output.healthy",
                   "id": "1",
-                  "type": "count"
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
                 }
               ],
-              "query": "",
+              "query": "annotations.output.service:heat_api",
               "refId": "A",
               "timeField": "startsAt"
             }
           ],
+          "thresholds": "",
           "timeFrom": null,
           "timeShift": null,
           "title": "Uptime heat_api",
-          "type": "stat"
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "text": "N/A"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "percentunit"
-            },
-            "overrides": []
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "es_collectd",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
           },
           "gridPos": {
             "h": 4,
@@ -712,23 +795,42 @@ spec:
           "id": 26,
           "interval": null,
           "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": false
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
             },
-            "text": {},
-            "textMode": "auto"
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
           },
-          "pluginVersion": "8.0.4",
+          "tableColumn": "",
           "targets": [
             {
               "alias": "",
@@ -737,66 +839,60 @@ spec:
                   "field": "startsAt",
                   "id": "2",
                   "settings": {
-                    "interval": "auto"
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
                   },
                   "type": "date_histogram"
                 }
               ],
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"nova_api\"})",
-              "interval": "",
-              "legendFormat": "",
               "metrics": [
                 {
+                  "field": "annotations.output.healthy",
                   "id": "1",
-                  "type": "count"
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
                 }
               ],
-              "query": "",
+              "query": "annotations.output.service:nova_api",
               "refId": "A",
               "timeField": "startsAt"
             }
           ],
+          "thresholds": "",
           "timeFrom": null,
           "timeShift": null,
           "title": "Uptime nova_api",
-          "type": "stat"
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "text": "N/A"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "percentunit"
-            },
-            "overrides": []
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "es_collectd",
+          "decimals": null,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
           },
           "gridPos": {
             "h": 4,
@@ -807,23 +903,42 @@ spec:
           "id": 32,
           "interval": null,
           "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": false
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
             },
-            "text": {},
-            "textMode": "auto"
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "options": {},
+          "pluginVersion": "6.5.1",
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false,
+            "ymax": null,
+            "ymin": null
           },
-          "pluginVersion": "8.0.4",
+          "tableColumn": "",
           "targets": [
             {
               "alias": "",
@@ -832,38 +947,45 @@ spec:
                   "field": "startsAt",
                   "id": "2",
                   "settings": {
-                    "interval": "auto"
+                    "interval": "auto",
+                    "min_doc_count": 0,
+                    "trimEdges": 0
                   },
                   "type": "date_histogram"
                 }
               ],
-              "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"glance_api\"})",
-              "interval": "",
-              "legendFormat": "",
               "metrics": [
                 {
+                  "field": "annotations.output.healthy",
                   "id": "1",
-                  "type": "count"
+                  "meta": {},
+                  "settings": {},
+                  "type": "avg"
                 }
               ],
-              "query": "",
+              "query": "annotations.output.service:glance_api",
               "refId": "A",
               "timeField": "startsAt"
             }
           ],
+          "thresholds": "",
           "timeFrom": null,
           "timeShift": null,
           "title": "Uptime glance_api",
-          "type": "stat"
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
         },
         {
           "collapsed": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -904,6 +1026,7 @@ spec:
             }
           ],
           "maxPerRow": 3,
+          "options": {},
           "polystat": {
             "animationSpeed": 2500,
             "columnAutoSize": true,
@@ -978,6 +1101,13 @@ spec:
               "unitFormat": "short"
             }
           ],
+          "scopedVars": {
+            "projects": {
+              "selected": false,
+              "text": "89ec46e9961f4b98a5a34cc3b0ee28d5",
+              "value": "89ec46e9961f4b98a5a34cc3b0ee28d5"
+            }
+          },
           "targets": [
             {
               "expr": "label_replace(collectd_virt_if_octets_rx_total, \"resource\", \"$1\", \"host\", \".+:(.+):.+\") + on(resource) group_right(plugin_instance) ceilometer_cpu{project=\"$projects\"}",
@@ -1000,10 +1130,6 @@ spec:
         {
           "collapsed": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1021,12 +1147,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1050,10 +1170,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1115,12 +1234,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1144,10 +1257,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1209,12 +1321,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1238,10 +1344,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1303,12 +1408,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1332,10 +1431,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1397,12 +1495,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1427,10 +1519,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1492,12 +1583,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1521,10 +1606,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1586,12 +1670,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1616,10 +1694,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1681,12 +1758,6 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1710,10 +1781,9 @@ spec:
           "linewidth": 1,
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1772,10 +1842,6 @@ spec:
         {
           "collapsed": false,
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1831,6 +1897,7 @@ spec:
             "y": 40
           },
           "id": 35,
+          "options": {},
           "pageSize": null,
           "showHeader": true,
           "sort": {
@@ -1840,14 +1907,12 @@ spec:
           "styles": [
             {
               "alias": "Time",
-              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "payload.generated",
               "type": "date"
             },
             {
               "alias": "Event",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1864,7 +1929,6 @@ spec:
             },
             {
               "alias": "Resource Name",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1887,7 +1951,6 @@ spec:
             },
             {
               "alias": "Tenant ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1904,7 +1967,6 @@ spec:
             },
             {
               "alias": "User ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1921,7 +1983,6 @@ spec:
             },
             {
               "alias": "Project ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1938,7 +1999,6 @@ spec:
             },
             {
               "alias": "Service",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1955,7 +2015,6 @@ spec:
             },
             {
               "alias": "Priority",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(50, 172, 45, 0.97)",
@@ -2035,7 +2094,7 @@ spec:
           "timeShift": null,
           "title": "Networking",
           "transform": "json",
-          "type": "table-old"
+          "type": "table"
         },
         {
           "columns": [
@@ -2081,6 +2140,7 @@ spec:
             "y": 46
           },
           "id": 36,
+          "options": {},
           "pageSize": null,
           "showHeader": true,
           "sort": {
@@ -2090,14 +2150,12 @@ spec:
           "styles": [
             {
               "alias": "Time",
-              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "payload.generated",
               "type": "date"
             },
             {
               "alias": "Event",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2114,7 +2172,6 @@ spec:
             },
             {
               "alias": "Resource Name",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2131,7 +2188,6 @@ spec:
             },
             {
               "alias": "Tenant ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2148,7 +2204,6 @@ spec:
             },
             {
               "alias": "User ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2165,7 +2220,6 @@ spec:
             },
             {
               "alias": "Project ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2182,7 +2236,6 @@ spec:
             },
             {
               "alias": "Service",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2199,7 +2252,6 @@ spec:
             },
             {
               "alias": "Priority",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(50, 172, 45, 0.97)",
@@ -2245,7 +2297,7 @@ spec:
           "timeShift": null,
           "title": "Volumes",
           "transform": "json",
-          "type": "table-old"
+          "type": "table"
         },
         {
           "columns": [
@@ -2291,6 +2343,7 @@ spec:
             "y": 51
           },
           "id": 37,
+          "options": {},
           "pageSize": null,
           "showHeader": true,
           "sort": {
@@ -2300,14 +2353,12 @@ spec:
           "styles": [
             {
               "alias": "Time",
-              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "payload.generated",
               "type": "date"
             },
             {
               "alias": "Event",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2324,7 +2375,6 @@ spec:
             },
             {
               "alias": "Resource ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2341,7 +2391,6 @@ spec:
             },
             {
               "alias": "Tenant ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2358,7 +2407,6 @@ spec:
             },
             {
               "alias": "User ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2375,7 +2423,6 @@ spec:
             },
             {
               "alias": "Project ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2392,7 +2439,6 @@ spec:
             },
             {
               "alias": "Service",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2409,7 +2455,6 @@ spec:
             },
             {
               "alias": "Priority",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(50, 172, 45, 0.97)",
@@ -2455,7 +2500,7 @@ spec:
           "timeShift": null,
           "title": "Compute",
           "transform": "json",
-          "type": "table-old"
+          "type": "table"
         },
         {
           "columns": [
@@ -2489,6 +2534,7 @@ spec:
             "y": 56
           },
           "id": 38,
+          "options": {},
           "pageSize": null,
           "showHeader": true,
           "sort": {
@@ -2498,14 +2544,12 @@ spec:
           "styles": [
             {
               "alias": "Time",
-              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "payload.generated",
               "type": "date"
             },
             {
               "alias": "Event",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2522,7 +2566,6 @@ spec:
             },
             {
               "alias": "Resource ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2539,7 +2582,6 @@ spec:
             },
             {
               "alias": "Tenant ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2556,7 +2598,6 @@ spec:
             },
             {
               "alias": "User ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2573,7 +2614,6 @@ spec:
             },
             {
               "alias": "Project ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2590,7 +2630,6 @@ spec:
             },
             {
               "alias": "Service",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2607,7 +2646,6 @@ spec:
             },
             {
               "alias": "Priority",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(50, 172, 45, 0.97)",
@@ -2653,7 +2691,7 @@ spec:
           "timeShift": null,
           "title": "Identity",
           "transform": "json",
-          "type": "table-old"
+          "type": "table"
         },
         {
           "columns": [
@@ -2703,6 +2741,7 @@ spec:
             "y": 61
           },
           "id": 39,
+          "options": {},
           "pageSize": null,
           "showHeader": true,
           "sort": {
@@ -2712,14 +2751,12 @@ spec:
           "styles": [
             {
               "alias": "Time",
-              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "payload.generated",
               "type": "date"
             },
             {
               "alias": "Event",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2736,7 +2773,6 @@ spec:
             },
             {
               "alias": "Resource ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2753,7 +2789,6 @@ spec:
             },
             {
               "alias": "Tenant ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2770,7 +2805,6 @@ spec:
             },
             {
               "alias": "User ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2787,7 +2821,6 @@ spec:
             },
             {
               "alias": "Project ID",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2804,7 +2837,6 @@ spec:
             },
             {
               "alias": "Service",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2821,7 +2853,6 @@ spec:
             },
             {
               "alias": "Priority",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(50, 172, 45, 0.97)",
@@ -2844,7 +2875,6 @@ spec:
             },
             {
               "alias": "Status",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2861,7 +2891,6 @@ spec:
             },
             {
               "alias": "Name",
-              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -2901,11 +2930,11 @@ spec:
           "timeShift": null,
           "title": "Images",
           "transform": "json",
-          "type": "table-old"
+          "type": "table"
         }
       ],
       "refresh": "15m",
-      "schemaVersion": 30,
+      "schemaVersion": 21,
       "style": "dark",
       "tags": [
         "CloudView"
@@ -2915,33 +2944,26 @@ spec:
           {
             "allValue": null,
             "current": {
-              "selected": true,
-              "text": [
-                "All"
-              ],
+              "text": "All",
               "value": [
                 "$__all"
               ]
             },
             "datasource": "STFPrometheus",
             "definition": "label_values(ceilometer_cpu,project)",
-            "description": null,
-            "error": null,
             "hide": 2,
             "includeAll": true,
             "label": null,
             "multi": true,
             "name": "projects",
             "options": [],
-            "query": {
-              "query": "label_values(ceilometer_cpu,project)",
-              "refId": "STFPrometheus-projects-Variable-Query"
-            },
+            "query": "label_values(ceilometer_cpu,project)",
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
+            "tags": [],
             "tagsQuery": "",
             "type": "query",
             "useTags": false
@@ -2954,8 +2976,6 @@ spec:
               "text": "8",
               "value": "8"
             },
-            "description": null,
-            "error": null,
             "hide": 0,
             "includeAll": false,
             "label": null,
@@ -3070,7 +3090,7 @@ spec:
         ]
       },
       "time": {
-        "from": "now-3h",
+        "from": "now-6h",
         "to": "now"
       },
       "timepicker": {
@@ -3090,5 +3110,6 @@ spec:
       "timezone": "",
       "title": "Cloud View",
       "uid": "IHqhpjPZz",
-      "version": 1
+      "version": 7
     }
+
