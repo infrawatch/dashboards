@@ -3070,7 +3070,7 @@ spec:
         ]
       },
       "time": {
-        "from": "now-3h",
+        "from": "now-24h",
         "to": "now"
       },
       "timepicker": {
