@@ -26,8 +26,8 @@ Edit your STF object to enable graphing by adding the following to the CustomRes
 
 ```bash
 # dashboards
-oc create -f deploy/rhos-dashboard.yaml \
-        -f deploy/rhos-cloud-dashboard.yaml
+oc create -f deploy/<STF_VERSION>/rhos-dashboard.yaml \
+        -f deploy<STF_VERSION>/rhos-cloud-dashboard.yaml
 
 # vm dashboard [WIP]
 oc create -f contrib/vm-view.yaml
