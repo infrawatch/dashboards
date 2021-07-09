@@ -7,12 +7,24 @@ Service Telemetry Framework.
 ## Installation
 
 Deploying a Grafana instance requires the deployment of the Grafana Operator
-first from the Community Operators catalog source. Then, run the following:
+from the Community Operators catalog source.
 
 ```bash
-oc create -f deploy/subscription.yaml \
-        -f deploy/grafana.yaml
+oc create -f deploy/subscription.yaml
+```
 
+Edit your STF object to enable graphing by adding the following to the CustomResource:
+```yaml
+...
+  graphing:
+    enabled: true
+    grafana:
+      ingress_enabled: true
+...
+```
+
+
+```bash
 # dashboards
 oc create -f deploy/rhos-dashboard.yaml \
         -f deploy/rhos-cloud-dashboard.yaml
