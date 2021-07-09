@@ -82,7 +82,7 @@ spec:
             "mode": "opacity"
           },
           "dataFormat": "tsbuckets",
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "gridPos": {
             "h": 8,
             "w": 15,
@@ -199,7 +199,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -293,7 +293,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -384,7 +384,7 @@ spec:
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -479,7 +479,7 @@ spec:
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -574,7 +574,7 @@ spec:
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -669,7 +669,7 @@ spec:
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -764,7 +764,7 @@ spec:
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -859,7 +859,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -999,7 +999,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1020,7 +1020,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -1114,7 +1114,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -1208,7 +1208,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -1302,7 +1302,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -1396,7 +1396,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -1491,7 +1491,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -1585,7 +1585,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -1680,7 +1680,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {
               "links": []
@@ -1771,7 +1771,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []

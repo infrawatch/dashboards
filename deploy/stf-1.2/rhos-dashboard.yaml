@@ -30,7 +30,7 @@ spec:
       "panels": [
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -314,7 +314,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -337,7 +337,7 @@ spec:
             "#C4162A",
             "#C4162A"
           ],
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "",
           "format": "none",
           "gauge": {
@@ -427,7 +427,7 @@ spec:
             "rgba(237, 129, 40, 0.89)",
             "#d44a3a"
           ],
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "Time node has been operational",
           "format": "dtdurations",
           "gauge": {
@@ -791,7 +791,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "Load average represents the average number of running and un-interruptable processes residing in the kernel's execution queue. \n\nTypically, short term, midterm, and long term series give running averages of 1m, 5m, and 15m, respectively. ",
           "fill": 1,
           "fillGradient": 0,
@@ -894,7 +894,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1115,7 +1115,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "",
           "fill": 1,
           "fillGradient": 0,
@@ -1215,7 +1215,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1416,7 +1416,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1679,7 +1679,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1840,7 +1840,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "gridPos": {
             "h": 1,
             "w": 24,

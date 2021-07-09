@@ -30,7 +30,7 @@ spec:
       "panels": [
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -326,7 +326,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -344,7 +344,7 @@ spec:
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {
@@ -426,7 +426,7 @@ spec:
         },
         {
           "cacheTimeout": null,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "Time node has been operational",
           "fieldConfig": {
             "defaults": {
@@ -807,7 +807,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "Load average represents the average number of running and un-interruptable processes residing in the kernel's execution queue. \n\nTypically, short term, midterm, and long term series give running averages of 1m, 5m, and 15m, respectively. ",
           "fieldConfig": {
             "defaults": {
@@ -917,7 +917,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1156,7 +1156,7 @@ spec:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {
@@ -1263,7 +1263,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1482,7 +1482,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1771,7 +1771,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1954,7 +1954,7 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
+          "datasource": "STFPrometheus",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
