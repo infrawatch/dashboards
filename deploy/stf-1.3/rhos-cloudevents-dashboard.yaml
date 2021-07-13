@@ -8,16 +8,6 @@ metadata:
 spec:
   json: |
     {
-      "__inputs": [
-        {
-          "name": "DS_ES_CEILOMETER",
-          "label": "es_ceilometer",
-          "description": "",
-          "type": "datasource",
-          "pluginId": "elasticsearch",
-          "pluginName": "Elasticsearch"
-        }
-      ],
       "__requires": [
         {
           "type": "datasource",
@@ -59,7 +49,7 @@ spec:
       "links": [],
       "panels": [
         {
-          "datasource": "${DS_ES_CEILOMETER}",
+          "datasource": "es_ceilometer",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -250,7 +240,7 @@ spec:
           {
             "allValue": null,
             "current": {},
-            "datasource": "${DS_ES_CEILOMETER}",
+            "datasource": "es_ceilometer",
             "definition": "{\"find\": \"terms\", \"field\": \"_index\"}",
             "description": null,
             "error": null,
