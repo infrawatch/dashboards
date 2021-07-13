@@ -1798,7 +1798,7 @@ spec:
       "schemaVersion": 30,
       "style": "dark",
       "tags": [
-        "CloudView"
+        "cloud-dashboards"
       ],
       "templating": {
         "list": [
