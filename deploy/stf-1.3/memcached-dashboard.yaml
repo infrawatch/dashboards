@@ -652,7 +652,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "rate(collectd_libpodstats_pod_cpu_percent{plugin_instance=\"memcached\"}[1m])",
+              "expr": "collectd_libpodstats_pod_cpu_percent{plugin_instance=\"memcached\"}",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
