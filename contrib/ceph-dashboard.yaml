@@ -770,8 +770,8 @@ spec:
             "allValue": null,
             "current": {
               "selected": true,
-              "text": "default-labnk-coll-meter-smartgateway",
-              "value": "default-labnk-coll-meter-smartgateway"
+              "text": "",
+              "value": ""
             },
             "datasource": "STFPrometheus",
             "definition": "label_values(service)",
