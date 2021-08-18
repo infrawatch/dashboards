@@ -561,7 +561,7 @@ spec:
           "pluginVersion": "8.0.4",
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) / count(sum by (type_instance) (collectd_cpu_percent{type_instance!=\"idle\",host=\"$hosts\"}))",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) / count(sum by (plugin_instance) (collectd_cpu_percent{host=\"$hosts\"}))",
               "format": "time_series",
               "instant": true,
               "intervalFactor": 1,
@@ -1331,7 +1331,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) / count(sum by (type_instance) (collectd_cpu_percent{type_instance!=\"idle\",host=\"$hosts\"}))",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) / count(sum by (plugin_instance) (collectd_cpu_percent{host=\"$hosts\"}))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Total",
