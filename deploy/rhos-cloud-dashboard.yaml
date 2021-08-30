@@ -1110,7 +1110,7 @@ spec:
           },
           "targets": [
             {
-              "expr": "label_replace(collectd_virt_if_octets_rx_total, \"resource\", \"$1\", \"host\", \".+:(.+):.+\") + on(resource) group_right(plugin_instance) ceilometer_cpu{project=\"$projects\"}",
+              "expr": "label_replace(collectd_virt_memory, \"resource\", \"$1\", \"host\", \".+:(.+):.+\") + on(resource) group_right(plugin_instance) ceilometer_cpu{project=\"$projects\"}",
               "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
