@@ -13,44 +13,6 @@ spec:
   name: rhos-cloud-dashboard.json
   json: |
     {
-      "__requires": [
-        {
-          "type": "grafana",
-          "id": "grafana",
-          "name": "Grafana",
-          "version": "8.0.4"
-        },
-        {
-          "type": "panel",
-          "id": "grafana-polystat-panel",
-          "name": "Polystat",
-          "version": "1.2.2"
-        },
-        {
-          "type": "panel",
-          "id": "graph",
-          "name": "Graph (old)",
-          "version": ""
-        },
-        {
-          "type": "panel",
-          "id": "heatmap",
-          "name": "Heatmap",
-          "version": ""
-        },
-        {
-          "type": "datasource",
-          "id": "prometheus",
-          "name": "Prometheus",
-          "version": "1.0.0"
-        },
-        {
-          "type": "panel",
-          "id": "stat",
-          "name": "Stat",
-          "version": ""
-        }
-      ],
       "annotations": {
         "list": [
           {
@@ -69,8 +31,8 @@ spec:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": null,
-      "iteration": 1626201439538,
+      "id": 3,
+      "iteration": 1631300439224,
       "links": [
         {
           "asDropdown": false,
@@ -115,7 +77,7 @@ spec:
           "hideZeroBuckets": false,
           "highlightCards": true,
           "id": 21,
-          "interval": "2m",
+          "interval": "10m",
           "legend": {
             "show": false
           },
@@ -125,7 +87,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"glance_api\"})",
+              "expr": " avg(sensubility_container_health_status{process=\"glance_api\", service=~\".+-$clouds-.+\"})",
               "format": "heatmap",
               "hide": false,
               "instant": false,
@@ -147,7 +109,7 @@ spec:
                 }
               ],
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"nova_api\"})",
+              "expr": "avg(sensubility_container_health_status{process=\"nova_api\", service=~\".+-$clouds-.+\"})",
               "format": "heatmap",
               "instant": false,
               "interval": "",
@@ -164,7 +126,7 @@ spec:
             },
             {
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"heat_api\"})",
+              "expr": "avg(sensubility_container_health_status{process=\"heat_api\", service=~\".+-$clouds-.+\"})",
               "format": "heatmap",
               "hide": false,
               "interval": "",
@@ -173,7 +135,7 @@ spec:
             },
             {
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"neutron_api\"})",
+              "expr": "avg(sensubility_container_health_status{process=\"neutron_api\", service=~\".+-$clouds-.+\"})",
               "format": "heatmap",
               "hide": false,
               "interval": "",
@@ -182,7 +144,7 @@ spec:
             },
             {
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"placement_api\"})",
+              "expr": "avg(sensubility_container_health_status{process=\"placement_api\", service=~\".+-$clouds-.+\"})",
               "format": "heatmap",
               "hide": false,
               "interval": "",
@@ -254,7 +216,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -264,7 +226,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "topk($top, sum by (plugin_instance, host) (collectd_libpodstats_pod_memory))",
+              "expr": "topk($top, sum by (plugin_instance, host) (collectd_libpodstats_pod_memory{service=~\".+-$clouds-.+\"}))",
               "legendFormat": "{{plugin_instance}} on {{host}}",
               "refId": "A"
             }
@@ -348,7 +310,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -358,7 +320,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "topk($top, avg_over_time(collectd_libpodstats_pod_cpu_percent[10m]))",
+              "expr": "topk($top, avg_over_time(collectd_libpodstats_pod_cpu_percent{service=~\".+-$clouds-.+\"}[10m]))",
               "legendFormat": "{{plugin_instance}} on {{host}}",
               "refId": "A"
             }
@@ -465,7 +427,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "alias": "",
@@ -480,7 +442,7 @@ spec:
                 }
               ],
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"placement_api\"})",
+              "expr": "avg(sensubility_container_health_status{process=\"placement_api\", service=~\".+-$clouds-.+\"})",
               "interval": "",
               "legendFormat": "",
               "metrics": [
@@ -549,10 +511,10 @@ spec:
             "colorMode": "none",
             "graphMode": "none",
             "justifyMode": "auto",
-            "orientation": "horizontal",
+            "orientation": "auto",
             "reduceOptions": {
               "calcs": [
-                "mean"
+                "lastNotNull"
               ],
               "fields": "",
               "values": false
@@ -560,7 +522,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "alias": "",
@@ -575,7 +537,8 @@ spec:
                 }
               ],
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"neutron_api\"})",
+              "expr": "avg(sensubility_container_health_status{process=\"neutron_api\", service=~\".+-$clouds-.+\"})",
+              "instant": false,
               "interval": "",
               "legendFormat": "",
               "metrics": [
@@ -655,7 +618,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "alias": "",
@@ -670,7 +633,7 @@ spec:
                 }
               ],
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"heat_api\"})",
+              "expr": "avg(sensubility_container_health_status{process=\"heat_api\", service=~\".+-$clouds-.+\"})",
               "interval": "",
               "legendFormat": "",
               "metrics": [
@@ -750,7 +713,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "alias": "",
@@ -765,7 +728,7 @@ spec:
                 }
               ],
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"nova_api\"})",
+              "expr": "avg(sensubility_container_health_status{process=\"nova_api\", service=~\".+-$clouds-.+\"})",
               "interval": "",
               "legendFormat": "",
               "metrics": [
@@ -845,7 +808,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "alias": "",
@@ -860,7 +823,7 @@ spec:
                 }
               ],
               "exemplar": true,
-              "expr": "avg(sensubility_container_health_status{process=\"glance_api\"})",
+              "expr": "avg(sensubility_container_health_status{process=\"glance_api\", service=~\".+-$clouds-.+\"})",
               "interval": "",
               "legendFormat": "",
               "metrics": [
@@ -931,7 +894,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -941,7 +904,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "collectd_libpodstats_pod_cpu_percent{plugin_instance=\"horizon\"}",
+              "expr": "collectd_libpodstats_pod_cpu_percent{plugin_instance=\"horizon\", service=~\".+-$clouds-.+\"}",
               "legendFormat": "{{host}}",
               "refId": "A"
             }
@@ -1025,7 +988,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1035,7 +998,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "collectd_libpodstats_pod_memory{plugin_instance=\"horizon\"}",
+              "expr": "collectd_libpodstats_pod_memory{plugin_instance=\"horizon\", service=~\".+-$clouds-.+\"}",
               "legendFormat": "{{host}}",
               "refId": "A"
             }
@@ -1119,7 +1082,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1129,7 +1092,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (host) (collectd_libpodstats_pod_cpu_percent{plugin_instance=~\"ceph-.*\"})",
+              "expr": "sum by (host) (collectd_libpodstats_pod_cpu_percent{plugin_instance=~\"ceph-.*\", service=~\".+-$clouds-.+\"})",
               "legendFormat": "{{host}}",
               "refId": "A"
             }
@@ -1213,7 +1176,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1223,7 +1186,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (host) (collectd_libpodstats_pod_memory{plugin_instance=~\"ceph-.*\"})",
+              "expr": "sum by (host) (collectd_libpodstats_pod_memory{plugin_instance=~\"ceph-.*\", service=~\".+-$clouds-.+\"})",
               "legendFormat": "{{host}}",
               "refId": "A"
             }
@@ -1308,7 +1271,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1318,7 +1281,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (host) (collectd_libpodstats_pod_cpu_percent{plugin_instance=~\"nova.*\"})",
+              "expr": "sum by (host) (collectd_libpodstats_pod_cpu_percent{plugin_instance=~\"nova.*\", service=~\".+-$clouds-.+\"})",
               "legendFormat": "{{host}}",
               "refId": "A"
             }
@@ -1402,7 +1365,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1412,7 +1375,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (host) (collectd_libpodstats_pod_memory{plugin_instance=~\"nova.*\"})",
+              "expr": "sum by (host) (collectd_libpodstats_pod_memory{plugin_instance=~\"nova.*\", service=~\".+-$clouds-.+\"})",
               "legendFormat": "{{host}}",
               "refId": "A"
             }
@@ -1497,7 +1460,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1507,7 +1470,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (host) (collectd_libpodstats_pod_cpu_percent{plugin_instance=~\"ceilometer.*\"})",
+              "expr": "sum by (host) (collectd_libpodstats_pod_cpu_percent{plugin_instance=~\"ceilometer.*\", service=~\".+-$clouds-.+\"})",
               "legendFormat": "{{host}}",
               "refId": "A"
             }
@@ -1591,7 +1554,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1601,7 +1564,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (host) (collectd_libpodstats_pod_memory{plugin_instance=~\"ceilometer.*\"})",
+              "expr": "sum by (host) (collectd_libpodstats_pod_memory{plugin_instance=~\"ceilometer.*\", service=~\".+-$clouds-.+\"})",
               "legendFormat": "{{host}}",
               "refId": "A"
             }
@@ -1672,7 +1635,7 @@ spec:
           "description": "Click instance for drill down view",
           "gridPos": {
             "h": 5,
-            "w": 12,
+            "w": 24,
             "x": 0,
             "y": 34
           },
@@ -1689,7 +1652,6 @@ spec:
               "value": 2
             }
           ],
-          "maxPerRow": 3,
           "polystat": {
             "animationSpeed": 2500,
             "columnAutoSize": true,
@@ -1700,21 +1662,20 @@ spec:
             "displayLimit": 100,
             "fontAutoColor": true,
             "fontAutoScale": true,
-            "fontColor": "",
             "fontSize": 12,
             "fontType": "Roboto",
             "globalDecimals": 2,
             "globalDisplayMode": "all",
             "globalDisplayTextTriggeredEmpty": "OK",
-            "globalOperatorName": "current",
+            "globalOperatorName": "avg",
             "globalUnitFormat": "short",
-            "gradientEnabled": false,
+            "gradientEnabled": true,
             "hexagonSortByDirection": 1,
             "hexagonSortByField": "name",
             "maxMetrics": 0,
             "polygonBorderColor": "black",
             "polygonBorderSize": 2,
-            "polygonGlobalFillColor": "#FFEE52",
+            "polygonGlobalFillColor": "#FFF899",
             "radius": "",
             "radiusAutoSize": true,
             "rowAutoSize": true,
@@ -1729,7 +1690,7 @@ spec:
             "tooltipSecondarySortDirection": 2,
             "tooltipSecondarySortField": "value",
             "tooltipTimestampEnabled": true,
-            "valueEnabled": false
+            "valueEnabled": true
           },
           "rangeMaps": [
             {
@@ -1741,32 +1702,13 @@ spec:
           "repeat": "projects",
           "repeatDirection": "h",
           "savedComposites": [],
-          "savedOverrides": [
-            {
-              "clickThrough": "d/hvMzdgdMz/virtual-machine-view?var-project=${projects}",
-              "colors": [
-                "#299c46",
-                "#e5ac0e",
-                "#bf1b00",
-                "#4040a0"
-              ],
-              "decimals": "",
-              "enabled": true,
-              "label": "OVERRIDE 1",
-              "metricName": ".*",
-              "newTabEnabled": true,
-              "operatorName": "avg",
-              "prefix": "",
-              "sanitizeURLEnabled": true,
-              "scaledDecimals": null,
-              "suffix": "",
-              "thresholds": [],
-              "unitFormat": "short"
-            }
-          ],
+          "savedOverrides": [],
           "targets": [
             {
-              "expr": "sum by (resource, plugin_instance) (label_replace(collectd_virt_memory, \"resource\", \"$1\", \"host\", \".+:(.+):.+\")) + on(resource) group_right(plugin_instance) ceilometer_cpu{project=\"$projects\"}",
+              "exemplar": true,
+              "expr": "sum by (resource, plugin_instance) (label_replace(collectd_virt_memory{service=~\".+-$clouds-.+\"}, \"resource\", \"$1\", \"host\", \".+:(.+):.+\")) + on(resource) group_right(plugin_instance) ceilometer_cpu{project=\"$projects\", service=~\".+-$clouds-.+\"}",
+              "instant": true,
+              "interval": "",
               "legendFormat": "{{plugin_instance}}",
               "refId": "A"
             }
@@ -1794,20 +1736,51 @@ spec:
         "list": [
           {
             "allValue": null,
-            "current": {},
+            "current": {
+              "selected": true,
+              "text": "osp161",
+              "value": "osp161"
+            },
+            "datasource": null,
+            "definition": "label_values(collectd_cpu_percent, service)",
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": "cloud",
+            "multi": false,
+            "name": "clouds",
+            "options": [],
+            "query": {
+              "query": "label_values(collectd_cpu_percent, service)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 1,
+            "regex": "/.+-(.+)-coll-meter/",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
+          },
+          {
+            "allValue": null,
+            "current": {
+              "selected": false,
+              "text": "All",
+              "value": "$__all"
+            },
             "datasource": "STFPrometheus",
-            "definition": "label_values(ceilometer_cpu,project)",
+            "definition": "label_values(ceilometer_cpu{service=~\".+-$clouds-.+\"},project)",
             "description": null,
             "error": null,
             "hide": 2,
             "includeAll": true,
             "label": null,
-            "multi": true,
+            "multi": false,
             "name": "projects",
             "options": [],
             "query": {
-              "query": "label_values(ceilometer_cpu,project)",
-              "refId": "STFPrometheus-projects-Variable-Query"
+              "query": "label_values(ceilometer_cpu{service=~\".+-$clouds-.+\"},project)",
+              "refId": "StandardVariableQuery"
             },
             "refresh": 2,
             "regex": "",
@@ -1822,8 +1795,8 @@ spec:
             "allValue": null,
             "current": {
               "selected": false,
-              "text": "8",
-              "value": "8"
+              "text": "5",
+              "value": "5"
             },
             "description": null,
             "error": null,
@@ -1854,7 +1827,7 @@ spec:
                 "value": "4"
               },
               {
-                "selected": false,
+                "selected": true,
                 "text": "5",
                 "value": "5"
               },
@@ -1869,7 +1842,7 @@ spec:
                 "value": "7"
               },
               {
-                "selected": true,
+                "selected": false,
                 "text": "8",
                 "value": "8"
               },
@@ -1938,17 +1911,6 @@ spec:
             "queryValue": "",
             "skipUrlSync": false,
             "type": "custom"
-          },
-          {
-            "datasource": "es_ceilometer",
-            "description": null,
-            "error": null,
-            "filters": [],
-            "hide": 0,
-            "label": null,
-            "name": "Filters",
-            "skipUrlSync": false,
-            "type": "adhoc"
           }
         ]
       },
@@ -1973,5 +1935,5 @@ spec:
       "timezone": "",
       "title": "Cloud View",
       "uid": "IHqhpjPZz",
-      "version": 48
+      "version": 13
     }
