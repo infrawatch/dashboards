@@ -1736,11 +1736,6 @@ spec:
         "list": [
           {
             "allValue": null,
-            "current": {
-              "selected": true,
-              "text": "osp161",
-              "value": "osp161"
-            },
             "datasource": null,
             "definition": "label_values(collectd_cpu_percent, service)",
             "description": null,

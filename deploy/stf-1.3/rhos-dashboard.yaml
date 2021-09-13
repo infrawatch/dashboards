@@ -2392,11 +2392,6 @@ spec:
         "list": [
           {
             "allValue": null,
-            "current": {
-              "selected": true,
-              "text": "osp161",
-              "value": "osp161"
-            },
             "datasource": null,
             "definition": "label_values(collectd_cpu_percent, service)",
             "description": null,
@@ -2419,11 +2414,6 @@ spec:
           },
           {
             "allValue": null,
-            "current": {
-              "selected": false,
-              "text": "ceph-0-16-1.redhat.local",
-              "value": "ceph-0-16-1.redhat.local"
-            },
             "datasource": "STFPrometheus",
             "definition": "label_values(collectd_cpu_percent{service=~\".+-$clouds-.+\"}, host)",
             "description": null,
