@@ -25,16 +25,12 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 2,
-      "iteration": 1625857489667,
+      "iteration": 1630329591375,
       "links": [],
       "panels": [
         {
           "collapsed": false,
           "datasource": "STFPrometheus",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -327,10 +323,6 @@ spec:
         {
           "collapsed": false,
           "datasource": "STFPrometheus",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -410,13 +402,17 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
-              "expr": "absent({host = '$hosts'}) or label_replace(vector(0), \"host\", \"$hosts\", \"host\", \".*\")",
+              "exemplar": true,
+              "expr": "absent({host = '$hosts', service=~\".+-$clouds-.+\"}) or label_replace(vector(0), \"host\", \"$hosts\", \"host\", \".*\")",
               "format": "time_series",
               "hide": false,
+              "instant": false,
+              "interval": "",
               "intervalFactor": 1,
+              "legendFormat": "",
               "refId": "B"
             }
           ],
@@ -486,10 +482,10 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
-              "expr": "collectd_uptime{host=\"$hosts\"}",
+              "expr": "collectd_uptime{host=\"$hosts\", service=~\".+-$clouds-.+\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "refId": "A"
@@ -558,10 +554,10 @@ spec:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) / count(sum by (plugin_instance) (collectd_cpu_percent{host=\"$hosts\"}))",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\", service=~\".+-$clouds-.+\"}) / count(sum by (type_instance) (collectd_cpu_percent{type_instance!=\"idle\",host=\"$hosts\", service=~\".+-$clouds-.+\"}))",
               "format": "time_series",
               "instant": true,
               "intervalFactor": 1,
@@ -633,10 +629,10 @@ spec:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
-              "expr": "sum(collectd_memory{type_instance=\"used\",host=\"$hosts\"})/ sum(collectd_memory{host=\"$hosts\"})",
+              "expr": "sum(collectd_memory{type_instance=\"used\",host=\"$hosts\", service=~\".+-$clouds-.+\"})/ sum(collectd_memory{host=\"$hosts\", service=~\".+-$clouds-.+\"})",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -708,10 +704,10 @@ spec:
             "showUnfilled": true,
             "text": {}
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
-              "expr": "sum(collectd_df_df_complex{host=\"$hosts\",type_instance=\"used\"}) by (plugin_instance) / sum(collectd_df_df_complex{host=\"$hosts\"}) by (plugin_instance)",
+              "expr": "sum(collectd_df_df_complex{host=\"$hosts\",type_instance=\"used\", service=~\".+-$clouds-.+\"}) by (plugin_instance) / sum(collectd_df_df_complex{host=\"$hosts\", service=~\".+-$clouds-.+\"}) by (plugin_instance)",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -787,10 +783,10 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
-              "expr": "sum(collectd_interface_if_errors_rx_total{host=\"$hosts\"}) + sum(collectd_interface_if_errors_tx_total{host=\"$hosts\"})",
+              "expr": "sum(collectd_interface_if_errors_rx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}) + sum(collectd_interface_if_errors_tx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{plugin_instance}}",
@@ -842,7 +838,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -852,21 +848,21 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "collectd_load_shortterm{host=\"$hosts\"}",
+              "expr": "collectd_load_shortterm{host=\"$hosts\", service=~\".+-$clouds-.+\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "short term",
               "refId": "A"
             },
             {
-              "expr": "collectd_load_midterm{host=\"$hosts\"}",
+              "expr": "collectd_load_midterm{host=\"$hosts\", service=~\".+-$clouds-.+\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "mid term",
               "refId": "B"
             },
             {
-              "expr": "collectd_load_longterm{host=\"$hosts\"}",
+              "expr": "collectd_load_longterm{host=\"$hosts\", service=~\".+-$clouds-.+\"}",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "long term",
@@ -918,10 +914,6 @@ spec:
         {
           "collapsed": false,
           "datasource": "STFPrometheus",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -975,7 +967,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -990,12 +982,12 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_octets_rx_total{host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_octets_rx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m])",
               "legendFormat": "Rx {{plugin_instance}}",
               "refId": "A"
             },
             {
-              "expr": "rate(collectd_interface_if_octets_tx_total{host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_octets_tx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m])",
               "legendFormat": "Tx {{plugin_instance}}",
               "refId": "B"
             }
@@ -1083,7 +1075,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1098,14 +1090,14 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_errors_rx_total{host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_errors_rx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Rx {{plugin_instance}}",
               "refId": "A"
             },
             {
-              "expr": "rate(collectd_interface_if_errors_tx_total{host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_errors_tx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m])",
               "legendFormat": "Tx {{plugin_instance}}",
               "refId": "B"
             }
@@ -1193,7 +1185,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1208,14 +1200,14 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(collectd_interface_if_dropped_rx_total{host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_dropped_rx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Rx {{plugin_instance}}",
               "refId": "A"
             },
             {
-              "expr": "rate(collectd_interface_if_dropped_tx_total{host=\"$hosts\"}[10m])",
+              "expr": "rate(collectd_interface_if_dropped_tx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m])",
               "legendFormat": "Tx {{plugin_instance}}",
               "refId": "B"
             }
@@ -1264,10 +1256,6 @@ spec:
         {
           "collapsed": false,
           "datasource": "STFPrometheus",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1321,7 +1309,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1331,7 +1319,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) / count(sum by (plugin_instance) (collectd_cpu_percent{host=\"$hosts\"}))",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\", service=~\".+-$clouds-.+\"}) / count(sum by (type_instance) (collectd_cpu_percent{type_instance!=\"idle\",host=\"$hosts\", service=~\".+-$clouds-.+\"}))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Total",
@@ -1421,7 +1409,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1431,7 +1419,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\"}) by (type_instance) / count(collectd_cpu_percent{host=\"$hosts\"}) by (type_instance)",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\", service=~\".+-$clouds-.+\"}) by (type_instance) / count(collectd_cpu_percent{host=\"$hosts\", service=~\".+-$clouds-.+\"}) by (type_instance)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -1483,10 +1471,6 @@ spec:
         {
           "collapsed": false,
           "datasource": "STFPrometheus",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1541,7 +1525,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1551,7 +1535,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_memory{type_instance=\"used\",host=\"$hosts\"})",
+              "expr": "sum(collectd_memory{type_instance=\"used\",host=\"$hosts\", service=~\".+-$clouds-.+\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "total",
@@ -1639,7 +1623,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1649,7 +1633,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(collectd_hugepages_vmpage_number{type_instance=\"used\",host=\"$hosts\"})",
+              "expr": "sum(collectd_hugepages_vmpage_number{type_instance=\"used\",host=\"$hosts\", service=~\".+-$clouds-.+\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{hugepages}}",
@@ -1754,10 +1738,10 @@ spec:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
-              "expr": "sum(collectd_hugepages_vmpage_number{type_instance=\"used\",host=\"$hosts\"}) / sum(collectd_hugepages_vmpage_number{host=\"$hosts\"})",
+              "expr": "sum(collectd_hugepages_vmpage_number{type_instance=\"used\",host=\"$hosts\", service=~\".+-$clouds-.+\"}) / sum(collectd_hugepages_vmpage_number{host=\"$hosts\", service=~\".+-$clouds-.+\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{hugepages}}",
@@ -1772,10 +1756,6 @@ spec:
         {
           "collapsed": false,
           "datasource": "STFPrometheus",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1838,10 +1818,10 @@ spec:
             "showUnfilled": true,
             "text": {}
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
-              "expr": "sum by (plugin_instance) (collectd_df_df_inodes{type_instance=\"used\", host=\"$hosts\"}) / sum by (plugin_instance) (collectd_df_df_inodes{host=\"$hosts\"})",
+              "expr": "sum by (plugin_instance) (collectd_df_df_inodes{type_instance=\"used\", host=\"$hosts\", service=~\".+-$clouds-.+\"}) / sum by (plugin_instance) (collectd_df_df_inodes{host=\"$hosts\", service=~\".+-$clouds-.+\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{plugin_instance}}",
@@ -1894,7 +1874,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1904,7 +1884,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (plugin_instance) (collectd_df_df_complex{type_instance!~\"free\",host=\"$hosts\"})",
+              "expr": "sum by (plugin_instance) (collectd_df_df_complex{type_instance!~\"free\",host=\"$hosts\", service=~\".+-$clouds-.+\"})",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{plugin_instance}}",
@@ -1955,10 +1935,6 @@ spec:
         {
           "collapsed": false,
           "datasource": "STFPrometheus",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -2014,7 +1990,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -2024,14 +2000,14 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(collectd_disk_disk_octets_read_total{host=\"$hosts\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_octets_read_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m]))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "read",
               "refId": "B"
             },
             {
-              "expr": "sum(rate(collectd_disk_disk_octets_write_total{host=\"$hosts\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_octets_write_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m]))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "write",
@@ -2123,7 +2099,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -2133,7 +2109,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(collectd_disk_disk_io_time_io_time_total{host=\"$hosts\"}[1h]))/1000",
+              "expr": "sum(rate(collectd_disk_disk_io_time_io_time_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[1h]))/1000",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -2141,7 +2117,7 @@ spec:
               "refId": "A"
             },
             {
-              "expr": "sum(rate(collectd_disk_disk_io_time_weighted_io_time_total{host=\"$hosts\"}[1h]))/1000",
+              "expr": "sum(rate(collectd_disk_disk_io_time_weighted_io_time_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[1h]))/1000",
               "legendFormat": "weighted i/o",
               "refId": "B"
             }
@@ -2231,7 +2207,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -2241,7 +2217,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(collectd_disk_disk_ops_read_total{host=\"$hosts\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_ops_read_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m]))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -2249,7 +2225,7 @@ spec:
               "refId": "A"
             },
             {
-              "expr": "sum(rate(collectd_disk_disk_ops_write_total{host=\"$hosts\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_ops_write_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m]))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -2340,7 +2316,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -2350,7 +2326,7 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(collectd_disk_disk_time_read_total{host=\"$hosts\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_time_read_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m]))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -2358,7 +2334,7 @@ spec:
               "refId": "A"
             },
             {
-              "expr": "sum(rate(collectd_disk_disk_time_write_total{host=\"$hosts\"}[10m]))",
+              "expr": "sum(rate(collectd_disk_disk_time_write_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}[10m]))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -2416,23 +2392,40 @@ spec:
         "list": [
           {
             "allValue": null,
-            "current": {
-              "selected": false,
-              "text": "ceph-0.osp-cloudops-01",
-              "value": "ceph-0.osp-cloudops-01"
-            },
-            "datasource": "STFPrometheus",
-            "definition": "label_values(collectd_cpu_percent, host)",
+            "datasource": null,
+            "definition": "label_values(collectd_cpu_percent, service)",
             "description": null,
             "error": null,
             "hide": 0,
             "includeAll": false,
-            "label": "nodes",
+            "label": "cloud",
+            "multi": false,
+            "name": "clouds",
+            "options": [],
+            "query": {
+              "query": "label_values(collectd_cpu_percent, service)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 1,
+            "regex": "/.+-(.+)-coll-meter/",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
+          },
+          {
+            "allValue": null,
+            "datasource": "STFPrometheus",
+            "definition": "label_values(collectd_cpu_percent{service=~\".+-$clouds-.+\"}, host)",
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": "node",
             "multi": false,
             "name": "hosts",
             "options": [],
             "query": {
-              "query": "label_values(collectd_cpu_percent, host)",
+              "query": "label_values(collectd_cpu_percent{service=~\".+-$clouds-.+\"}, host)",
               "refId": "StandardVariableQuery"
             },
             "refresh": 1,
@@ -2478,5 +2471,5 @@ spec:
       "timezone": "",
       "title": "Infrastructure Node View",
       "uid": "1F1OJZEWz",
-      "version": 1
+      "version": 3
     }
