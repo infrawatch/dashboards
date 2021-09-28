@@ -2447,7 +2447,7 @@ spec:
         ]
       },
       "time": {
-        "from": "now-12h",
+        "from": "now-24h",
         "to": "now"
       },
       "timepicker": {
