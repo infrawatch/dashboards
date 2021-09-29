@@ -25,7 +25,7 @@ spec:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 7,
+      "id": 2,
       "links": [],
       "panels": [
         {
@@ -84,11 +84,11 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_memcached_memcached_connections",
+              "expr": "collectd_memcached_memcached_connections{service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -140,11 +140,11 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_memcached_uptime",
+              "expr": "collectd_memcached_uptime{service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -195,11 +195,11 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_memcached_memcached_items",
+              "expr": "collectd_memcached_memcached_items{service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -281,7 +281,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "rate(collectd_memcached_connections_total[1m])",
+              "expr": "rate(collectd_memcached_connections_total{service=~\".+-$clouds-.+\"}[1m])",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -362,7 +362,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "rate(collectd_memcached_total_events_total[1m])",
+              "expr": "rate(collectd_memcached_total_events_total{service=~\".+-$clouds-.+\"}[1m])",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -423,7 +423,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -440,7 +440,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "rate(collectd_memcached_memcached_octets_tx_total[1m])",
+              "expr": "rate(collectd_memcached_memcached_octets_tx_total{service=~\".+-$clouds-.+\"}[1m])",
               "hide": false,
               "interval": "",
               "legendFormat": "Tx {{ host }}",
@@ -448,7 +448,7 @@ spec:
             },
             {
               "exemplar": true,
-              "expr": "rate(collectd_memcached_memcached_octets_rx_total[1m])",
+              "expr": "rate(collectd_memcached_memcached_octets_rx_total{service=~\".+-$clouds-.+\"}[1m])",
               "interval": "",
               "legendFormat": "Rx {{ host }}",
               "refId": "A"
@@ -570,7 +570,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_libpodstats_pod_memory{plugin_instance=\"memcached\"}",
+              "expr": "collectd_libpodstats_pod_memory{plugin_instance=\"memcached\",service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -652,7 +652,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_libpodstats_pod_cpu_percent{plugin_instance=\"memcached\"}",
+              "expr": "collectd_libpodstats_pod_cpu_percent{plugin_instance=\"memcached\",service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -734,7 +734,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "rate(collectd_libpodstats_pod_cpu_time_total{plugin_instance=\"memcached\"}[1m])",
+              "expr": "rate(collectd_libpodstats_pod_cpu_time_total{plugin_instance=\"memcached\",service=~\".+-$clouds-.+\"}[1m])",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -802,11 +802,11 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
-              "expr": "(collectd_memcached_df_free + collectd_memcached_df_used)",
+              "expr": "(collectd_memcached_df_free{service=~\".+-$clouds-.+\"} + collectd_memcached_df_used{service=~\".+-$clouds-.+\"})",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -884,7 +884,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_memcached_df_used",
+              "expr": "collectd_memcached_df_used{service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -938,11 +938,11 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_memcached_df_used / (collectd_memcached_df_free + collectd_memcached_df_used)",
+              "expr": "collectd_memcached_df_used{service=~\".+-$clouds-.+\"} / (collectd_memcached_df_free{service=~\".+-$clouds-.+\"} + collectd_memcached_df_used{service=~\".+-$clouds-.+\"})",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -993,11 +993,11 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_memcached_memcached_command_total{type_instance=\"get\"}",
+              "expr": "collectd_memcached_memcached_command_total{type_instance=\"get\",service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host  }}",
               "refId": "A"
@@ -1048,11 +1048,11 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_memcached_memcached_command_total{type_instance=\"set\"}",
+              "expr": "collectd_memcached_memcached_command_total{type_instance=\"set\",service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host  }}",
               "refId": "A"
@@ -1135,7 +1135,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "rate(collectd_memcached_memcached_ops_total{type_instance=\"hits\"}[1m])",
+              "expr": "rate(collectd_memcached_memcached_ops_total{type_instance=\"hits\",service=~\".+-$clouds-.+\"}[1m])",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -1217,7 +1217,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "rate(collectd_memcached_memcached_ops_total{type_instance=\"misses\"}[1m])",
+              "expr": "rate(collectd_memcached_memcached_ops_total{type_instance=\"misses\",service=~\".+-$clouds-.+\"}[1m])",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -1268,11 +1268,11 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_memcached_memcached_command_total{type_instance=\"flush\"}",
+              "expr": "collectd_memcached_memcached_command_total{type_instance=\"flush\",service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host  }}",
               "refId": "A"
@@ -1323,11 +1323,11 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
-              "expr": "collectd_memcached_memcached_ops_total{type_instance=\"evictions\"}",
+              "expr": "collectd_memcached_memcached_ops_total{type_instance=\"evictions\",service=~\".+-$clouds-.+\"}",
               "interval": "",
               "legendFormat": "{{ host  }}",
               "refId": "A"
@@ -1406,7 +1406,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "rate(collectd_memcached_memcached_command_total{type_instance=\"flush\"}[1m])",
+              "expr": "rate(collectd_memcached_memcached_command_total{type_instance=\"flush\",service=~\".+-$clouds-.+\"}[1m])",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -1489,7 +1489,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "rate(collectd_memcached_memcached_ops_total{type_instance=\"evictions\"}[1m])",
+              "expr": "rate(collectd_memcached_memcached_ops_total{type_instance=\"evictions\",service=~\".+-$clouds-.+\"}[1m])",
               "interval": "",
               "legendFormat": "{{ host }}",
               "refId": "A"
@@ -1504,7 +1504,30 @@ spec:
       "style": "dark",
       "tags": [],
       "templating": {
-        "list": []
+        "list": [
+          {
+            "allValue": null,
+            "datasource": null,
+            "definition": "label_values(collectd_memcached_percent, service)",
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": "cloud",
+            "multi": false,
+            "name": "clouds",
+            "options": [],
+            "query": {
+              "query": "label_values(collectd_memcached_percent, service)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 1,
+            "regex": "/.+-(.+)-coll-meter/",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
+          }
+        ]
       },
       "time": {
         "from": "now-24h",
@@ -1514,5 +1537,5 @@ spec:
       "timezone": "",
       "title": "Memcached View",
       "uid": "VHbfxjinz",
-      "version": 14
+      "version": 2
     }
