@@ -41,7 +41,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 11,
-      "iteration": 1626373491920,
+      "iteration": 1632949124800,
       "links": [],
       "panels": [
         {
@@ -105,7 +105,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
@@ -390,7 +390,7 @@ spec:
           "options": {
             "showHeader": true
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "exemplar": true,
@@ -555,7 +555,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -735,7 +735,7 @@ spec:
             "showHeader": true,
             "sortBy": []
           },
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "bucketAggs": [
@@ -830,7 +830,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -940,7 +940,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1050,7 +1050,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1160,7 +1160,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1240,13 +1240,30 @@ spec:
         "list": [
           {
             "allValue": null,
-            "current": {
-              "selected": false,
-              "text": "",
-              "value": ""
-            },
             "datasource": null,
-            "definition": "label_values(project)",
+            "definition": "label_values(service)",
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": "cloud",
+            "multi": false,
+            "name": "clouds",
+            "options": [],
+            "query": {
+              "query": "label_values(service)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 1,
+            "regex": "/.+-(.+)-coll-meter/",
+            "skipUrlSync": false,
+            "sort": 1,
+            "type": "query"
+          },
+          {
+            "allValue": null,
+            "datasource": null,
+            "definition": "label_values(ceilometer_cpu{service=~\".+-$clouds-.+\"}, project)",
             "description": null,
             "error": null,
             "hide": 0,
@@ -1256,8 +1273,8 @@ spec:
             "name": "project",
             "options": [],
             "query": {
-              "query": "label_values(project)",
-              "refId": "STFPrometheus-project-Variable-Query"
+              "query": "label_values(ceilometer_cpu{service=~\".+-$clouds-.+\"}, project)",
+              "refId": "StandardVariableQuery"
             },
             "refresh": 1,
             "regex": "",
@@ -1267,22 +1284,11 @@ spec:
             "tagsQuery": "",
             "type": "query",
             "useTags": false
-          },
-          {
-            "datasource": null,
-            "description": null,
-            "error": null,
-            "filters": [],
-            "hide": 0,
-            "label": "",
-            "name": "Filters",
-            "skipUrlSync": false,
-            "type": "adhoc"
           }
         ]
       },
       "time": {
-        "from": "now-1h",
+        "from": "now-24h",
         "to": "now"
       },
       "timepicker": {
@@ -1302,5 +1308,5 @@ spec:
       "timezone": "",
       "title": "Virtual Machine View",
       "uid": "JJzvn8mnz",
-      "version": 2
+      "version": 3
     }
