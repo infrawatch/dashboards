@@ -32,7 +32,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 3,
-      "iteration": 1631300439224,
+      "iteration": 1633009062196,
       "links": [
         {
           "asDropdown": false,
@@ -345,14 +345,16 @@ spec:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:169",
               "format": "percent",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "100",
               "min": null,
               "show": true
             },
             {
+              "$$hashKey": "object:170",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -929,14 +931,16 @@ spec:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:235",
               "format": "percent",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "100",
               "min": null,
               "show": true
             },
             {
+              "$$hashKey": "object:236",
               "format": "percent",
               "label": null,
               "logBase": 1,
@@ -1117,14 +1121,16 @@ spec:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:407",
               "format": "percent",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "100",
               "min": null,
               "show": true
             },
             {
+              "$$hashKey": "object:408",
               "format": "percent",
               "label": null,
               "logBase": 1,
@@ -1306,14 +1312,16 @@ spec:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:293",
               "format": "percent",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "100",
               "min": null,
               "show": true
             },
             {
+              "$$hashKey": "object:294",
               "format": "percent",
               "label": null,
               "logBase": 1,
@@ -1495,14 +1503,16 @@ spec:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:465",
               "format": "percent",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "100",
               "min": null,
               "show": true
             },
             {
+              "$$hashKey": "object:466",
               "format": "percent",
               "label": null,
               "logBase": 1,
@@ -1930,5 +1940,5 @@ spec:
       "timezone": "",
       "title": "Cloud View",
       "uid": "IHqhpjPZz",
-      "version": 13
+      "version": 14
     }
