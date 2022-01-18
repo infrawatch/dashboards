@@ -573,7 +573,7 @@ spec:
             },
             {
               "exemplar": true,
-              "expr": "label_replace(label_replace(rate(collectd_virt_disk_write_read_total[1m]), \"resource\", \"$1\", \"host\", \".+:(.+):.+\"), \"node\", \"$1\", \"host\", \".+:.+:(.+)\") + on (resource) group_left(project) (ceilometer_cpu{project=\"$project\"} * 0)",
+              "expr": "label_replace(label_replace(rate(collectd_virt_disk_ops_write_total[1m]), \"resource\", \"$1\", \"host\", \".+:(.+):.+\"), \"node\", \"$1\", \"host\", \".+:.+:(.+)\") + on (resource) group_left(project) (ceilometer_cpu{project=\"$project\"} * 0)",
               "interval": "",
               "legendFormat": "Write {{ plugin_instance }} disk {{ type_instance }}",
               "refId": "B"
