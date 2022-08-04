@@ -394,7 +394,7 @@ spec:
           "targets": [
             {
               "exemplar": true,
-              "expr": "(ceilometer_cpu{project=\"$project\"}) + on (resource) group_right(project) label_replace(label_replace(collectd_virt_virt_vcpu_total, \"resource\", \"$1\", \"host\", \".+:(.+):.+\"), \"Node\", \"$1\", \"host\", \".+:.+:(.+)\")",
+              "expr": "(ceilometer_cpu{project=\"$project\"}) + on (resource) group_right(project) label_replace(label_replace(collectd_virt_virt_cpu_total_total, \"resource\", \"$1\", \"host\", \".+:(.+):.+\"), \"Node\", \"$1\", \"host\", \".+:.+:(.+)\")",
               "format": "table",
               "instant": true,
               "interval": "",
