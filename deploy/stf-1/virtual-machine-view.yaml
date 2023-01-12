@@ -3,7 +3,7 @@ kind: GrafanaDashboard
 metadata:
   labels:
     app: grafana
-  name: virtual-machine-view-1.3
+  name: virtual-machine-view-1
   namespace: service-telemetry
 spec:
   name: virtual-machine-view.json

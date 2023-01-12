@@ -3,7 +3,7 @@ kind: GrafanaDashboard
 metadata:
   labels:
     app: grafana
-  name: memcached-dashboard-1.3
+  name: memcached-dashboard-1
   namespace: service-telemetry
 spec:
   json: |
