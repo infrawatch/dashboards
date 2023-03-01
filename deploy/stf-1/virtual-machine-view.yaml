@@ -22,9 +22,9 @@ spec:
           },
           {
             "datasource": "es_ceilometer",
-            "enable": true,
+            "enable": false,
             "hide": false,
-            "iconColor": "green",
+            "iconColor": "#616161",
             "limit": 100,
             "name": "Compute Instance",
             "query": "labels.project_id: $project",
