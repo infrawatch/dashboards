@@ -13,26 +13,23 @@ from the Community Operators catalog source.
 oc create -f deploy/subscription.yaml
 ```
 
-Edit your STF object to enable graphing by adding the following to the CustomResource:
+Edit your ServiceTelemetry object to enable graphing by adding the following to
+the CustomResource:
+
 ```yaml
 ...
   graphing:
     enabled: true
     grafana:
-      ingress_enabled: true
+      ingressEnabled: true
 ...
 ```
 
-Create dashboards according to STF version
+Load the dashboard objects for Grafana:
+
 ```bash
-# stf-1.2 dashboards
-oc create -f deploy/rhos-dashboard.yaml \
-        -f deploy/rhos-cloud-dashboard.yaml
-
-# stf-1.3 dashboards
-oc create -f deploy/stf-1.3/rhos-dashboard.yaml \
-        -f deploy/stf-1.3/rhos-cloud-dashboard.yaml
-
-# vm dashboard [WIP]
-oc create -f contrib/vm-view.yaml
+oc create -f deploy/stf-1/rhos-dashboard.yaml \
+          -f deploy/stf-1/rhos-cloud-dashboard.yaml \
+          -f deploy/stf-1/virtual-machine-view.yaml \
+          -f deploy/stf-1/memcached-dashboard.yml
 ```
