@@ -557,7 +557,7 @@ spec:
           "pluginVersion": "8.0.6",
           "targets": [
             {
-              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\", service=~\".+-$clouds-.+\"}) / count(sum by (type_instance) (collectd_cpu_percent{type_instance!=\"idle\",host=\"$hosts\", service=~\".+-$clouds-.+\"}))",
+              "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\", service=~\".+-$clouds-.+\"}) / count(sum by (host,plugin_instance) (collectd_cpu_percent{host=\"$hosts\", service=~\".+-$clouds-.+\"}))",
               "format": "time_series",
               "instant": true,
               "intervalFactor": 1,
