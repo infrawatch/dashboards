@@ -25,7 +25,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 2,
-      "iteration": 1630329591375,
+      "iteration": 1695783546006,
       "links": [],
       "panels": [
         {
@@ -36,298 +36,6 @@ spec:
             "w": 24,
             "x": 0,
             "y": 0
-          },
-          "id": 64,
-          "panels": [],
-          "title": "Alerts",
-          "type": "row"
-        },
-        {
-          "cacheTimeout": null,
-          "columns": [],
-          "datasource": "STFPrometheus",
-          "description": "Show currently firing alerts",
-          "fontSize": "100%",
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 1
-          },
-          "id": 61,
-          "links": [],
-          "pageSize": null,
-          "pluginVersion": "6.5.1",
-          "showHeader": true,
-          "sort": {
-            "col": 3,
-            "desc": true
-          },
-          "styles": [
-            {
-              "alias": "Time",
-              "align": "auto",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "link": false,
-              "pattern": "Time",
-              "type": "date"
-            },
-            {
-              "alias": "",
-              "align": "auto",
-              "colorMode": "cell",
-              "colors": [
-                "rgba(50, 172, 45, 0.97)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(245, 54, 54, 0.9)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 2,
-              "pattern": "Value",
-              "rangeMaps": [
-                {
-                  "from": "1",
-                  "text": "ALARM",
-                  "to": "1"
-                },
-                {
-                  "from": "",
-                  "text": "C",
-                  "to": ""
-                }
-              ],
-              "thresholds": [
-                "0",
-                "1"
-              ],
-              "type": "hidden",
-              "unit": "short",
-              "valueMaps": [
-                {
-                  "text": "ALARM",
-                  "value": "1"
-                },
-                {
-                  "text": "CLEARED",
-                  "value": "-"
-                }
-              ]
-            },
-            {
-              "alias": "",
-              "align": "auto",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 1,
-              "pattern": "__name__",
-              "thresholds": [],
-              "type": "hidden",
-              "unit": "short"
-            },
-            {
-              "alias": "",
-              "align": "auto",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 1,
-              "pattern": "alertstate",
-              "thresholds": [],
-              "type": "hidden",
-              "unit": "short"
-            },
-            {
-              "alias": "",
-              "align": "auto",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 2,
-              "pattern": "/.*/",
-              "thresholds": [],
-              "type": "number",
-              "unit": "short"
-            }
-          ],
-          "targets": [
-            {
-              "expr": "ALERTS{alertstate!=\"pending\"}",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Current Global Alerts",
-          "transform": "table",
-          "type": "table-old"
-        },
-        {
-          "cacheTimeout": null,
-          "columns": [],
-          "datasource": "STFPrometheus",
-          "description": "Show recently fired alerts in 5m time steps",
-          "fontSize": "100%",
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 1
-          },
-          "id": 62,
-          "links": [],
-          "pageSize": null,
-          "pluginVersion": "6.5.1",
-          "showHeader": true,
-          "sort": {
-            "col": 3,
-            "desc": true
-          },
-          "styles": [
-            {
-              "alias": "Time",
-              "align": "auto",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "link": false,
-              "pattern": "Time",
-              "type": "date"
-            },
-            {
-              "alias": "",
-              "align": "auto",
-              "colorMode": "cell",
-              "colors": [
-                "rgba(50, 172, 45, 0.97)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(245, 54, 54, 0.9)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 2,
-              "pattern": "Value",
-              "rangeMaps": [
-                {
-                  "from": "1",
-                  "text": "ALARM",
-                  "to": "1"
-                },
-                {
-                  "from": "",
-                  "text": "C",
-                  "to": ""
-                }
-              ],
-              "thresholds": [
-                "0",
-                "1"
-              ],
-              "type": "hidden",
-              "unit": "short",
-              "valueMaps": [
-                {
-                  "text": "ALARM",
-                  "value": "1"
-                },
-                {
-                  "text": "CLEARED",
-                  "value": "-"
-                }
-              ]
-            },
-            {
-              "alias": "",
-              "align": "auto",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 1,
-              "pattern": "__name__",
-              "thresholds": [],
-              "type": "hidden",
-              "unit": "short"
-            },
-            {
-              "alias": "",
-              "align": "auto",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 1,
-              "pattern": "alertstate",
-              "thresholds": [],
-              "type": "hidden",
-              "unit": "short"
-            },
-            {
-              "alias": "",
-              "align": "auto",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 2,
-              "pattern": "/.*/",
-              "thresholds": [],
-              "type": "number",
-              "unit": "short"
-            }
-          ],
-          "targets": [
-            {
-              "expr": "ALERTS{alertstate!=\"pending\"}",
-              "format": "table",
-              "hide": false,
-              "instant": false,
-              "interval": "5m",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Recent Global Alerts",
-          "transform": "table",
-          "type": "table-old"
-        },
-        {
-          "collapsed": false,
-          "datasource": "STFPrometheus",
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 9
           },
           "id": 68,
           "panels": [],
@@ -381,7 +89,7 @@ spec:
             "h": 5,
             "w": 2,
             "x": 0,
-            "y": 10
+            "y": 1
           },
           "id": 33,
           "interval": null,
@@ -402,7 +110,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "exemplar": true,
@@ -461,7 +169,7 @@ spec:
             "h": 5,
             "w": 2,
             "x": 2,
-            "y": 10
+            "y": 1
           },
           "id": 31,
           "interval": null,
@@ -482,7 +190,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "expr": "collectd_uptime{host=\"$hosts\", service=~\".+-$clouds-.+\"}",
@@ -537,7 +245,7 @@ spec:
             "h": 5,
             "w": 3,
             "x": 4,
-            "y": 10
+            "y": 1
           },
           "id": 19,
           "links": [],
@@ -554,7 +262,7 @@ spec:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "expr": "sum(collectd_cpu_percent{type_instance!=\"idle\", host=\"$hosts\", service=~\".+-$clouds-.+\"}) / count(sum by (host,plugin_instance) (collectd_cpu_percent{host=\"$hosts\", service=~\".+-$clouds-.+\"}))",
@@ -612,7 +320,7 @@ spec:
             "h": 5,
             "w": 3,
             "x": 7,
-            "y": 10
+            "y": 1
           },
           "id": 44,
           "links": [],
@@ -629,7 +337,7 @@ spec:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "expr": "sum(collectd_memory{type_instance=\"used\",host=\"$hosts\", service=~\".+-$clouds-.+\"})/ sum(collectd_memory{host=\"$hosts\", service=~\".+-$clouds-.+\"})",
@@ -687,7 +395,7 @@ spec:
             "h": 5,
             "w": 3,
             "x": 10,
-            "y": 10
+            "y": 1
           },
           "id": 41,
           "links": [],
@@ -704,7 +412,7 @@ spec:
             "showUnfilled": true,
             "text": {}
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "expr": "sum(collectd_df_df_complex{host=\"$hosts\",type_instance=\"used\", service=~\".+-$clouds-.+\"}) by (plugin_instance) / sum(collectd_df_df_complex{host=\"$hosts\", service=~\".+-$clouds-.+\"}) by (plugin_instance)",
@@ -762,7 +470,7 @@ spec:
             "h": 5,
             "w": 3,
             "x": 13,
-            "y": 10
+            "y": 1
           },
           "id": 54,
           "interval": null,
@@ -783,7 +491,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "expr": "sum(collectd_interface_if_errors_rx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"}) + sum(collectd_interface_if_errors_tx_total{host=\"$hosts\", service=~\".+-$clouds-.+\"})",
@@ -817,7 +525,7 @@ spec:
             "h": 5,
             "w": 8,
             "x": 16,
-            "y": 10
+            "y": 1
           },
           "hiddenSeries": false,
           "id": 35,
@@ -838,7 +546,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -918,7 +626,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 15
+            "y": 6
           },
           "id": 37,
           "panels": [],
@@ -944,7 +652,7 @@ spec:
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 16
+            "y": 7
           },
           "hiddenSeries": false,
           "id": 48,
@@ -967,7 +675,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1052,7 +760,7 @@ spec:
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 16
+            "y": 7
           },
           "hiddenSeries": false,
           "id": 56,
@@ -1075,7 +783,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1162,7 +870,7 @@ spec:
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 16
+            "y": 7
           },
           "hiddenSeries": false,
           "id": 53,
@@ -1185,7 +893,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1260,7 +968,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 24
+            "y": 15
           },
           "id": 21,
           "panels": [],
@@ -1286,7 +994,7 @@ spec:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 25
+            "y": 16
           },
           "hiddenSeries": false,
           "id": 2,
@@ -1309,7 +1017,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1386,7 +1094,7 @@ spec:
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 25
+            "y": 16
           },
           "hiddenSeries": false,
           "id": 15,
@@ -1409,7 +1117,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1475,7 +1183,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 33
+            "y": 24
           },
           "id": 25,
           "panels": [],
@@ -1502,7 +1210,7 @@ spec:
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 34
+            "y": 25
           },
           "hiddenSeries": false,
           "id": 27,
@@ -1525,7 +1233,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1602,7 +1310,7 @@ spec:
             "h": 5,
             "w": 9,
             "x": 12,
-            "y": 34
+            "y": 25
           },
           "hiddenSeries": false,
           "id": 23,
@@ -1623,7 +1331,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1721,7 +1429,7 @@ spec:
             "h": 5,
             "w": 3,
             "x": 21,
-            "y": 34
+            "y": 25
           },
           "id": 71,
           "links": [],
@@ -1738,7 +1446,7 @@ spec:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "expr": "sum(collectd_hugepages_vmpage_number{type_instance=\"used\",host=\"$hosts\", service=~\".+-$clouds-.+\"}) / sum(collectd_hugepages_vmpage_number{host=\"$hosts\", service=~\".+-$clouds-.+\"})",
@@ -1760,7 +1468,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 39
+            "y": 30
           },
           "id": 11,
           "panels": [],
@@ -1801,7 +1509,7 @@ spec:
             "h": 8,
             "w": 6,
             "x": 0,
-            "y": 40
+            "y": 31
           },
           "id": 51,
           "links": [],
@@ -1818,7 +1526,7 @@ spec:
             "showUnfilled": true,
             "text": {}
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "expr": "sum by (plugin_instance) (collectd_df_df_inodes{type_instance=\"used\", host=\"$hosts\", service=~\".+-$clouds-.+\"}) / sum by (plugin_instance) (collectd_df_df_inodes{host=\"$hosts\", service=~\".+-$clouds-.+\"})",
@@ -1851,7 +1559,7 @@ spec:
             "h": 8,
             "w": 18,
             "x": 6,
-            "y": 40
+            "y": 31
           },
           "hiddenSeries": false,
           "id": 9,
@@ -1874,7 +1582,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1939,7 +1647,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 48
+            "y": 39
           },
           "id": 70,
           "panels": [],
@@ -1966,7 +1674,7 @@ spec:
             "h": 6,
             "w": 12,
             "x": 0,
-            "y": 49
+            "y": 40
           },
           "hiddenSeries": false,
           "id": 13,
@@ -1990,7 +1698,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -2076,7 +1784,7 @@ spec:
             "h": 6,
             "w": 12,
             "x": 12,
-            "y": 49
+            "y": 40
           },
           "hiddenSeries": false,
           "id": 4,
@@ -2099,7 +1807,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -2184,7 +1892,7 @@ spec:
             "h": 6,
             "w": 12,
             "x": 0,
-            "y": 55
+            "y": 46
           },
           "hiddenSeries": false,
           "id": 17,
@@ -2207,7 +1915,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -2293,7 +2001,7 @@ spec:
             "h": 6,
             "w": 12,
             "x": 12,
-            "y": 55
+            "y": 46
           },
           "hiddenSeries": false,
           "id": 16,
@@ -2316,7 +2024,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -2385,7 +2093,7 @@ spec:
         }
       ],
       "refresh": "1m",
-      "schemaVersion": 30,
+      "schemaVersion": 27,
       "style": "dark",
       "tags": [],
       "templating": {
@@ -2410,7 +2118,11 @@ spec:
             "regex": "/.+-(.+)-coll-meter/",
             "skipUrlSync": false,
             "sort": 0,
-            "type": "query"
+            "tagValuesQuery": "",
+            "tags": [],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
           },
           {
             "allValue": null,
@@ -2433,6 +2145,7 @@ spec:
             "skipUrlSync": false,
             "sort": 1,
             "tagValuesQuery": "",
+            "tags": [],
             "tagsQuery": "",
             "type": "query",
             "useTags": false
@@ -2440,7 +2153,7 @@ spec:
         ]
       },
       "time": {
-        "from": "now-24h",
+        "from": "now-1h",
         "to": "now"
       },
       "timepicker": {
@@ -2471,5 +2184,5 @@ spec:
       "timezone": "",
       "title": "Infrastructure Node View",
       "uid": "1F1OJZEWz",
-      "version": 3
+      "version": 4
     }

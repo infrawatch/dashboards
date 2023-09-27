@@ -19,29 +19,14 @@ spec:
             "iconColor": "rgba(0, 211, 255, 1)",
             "name": "Annotations & Alerts",
             "type": "dashboard"
-          },
-          {
-            "datasource": "es_ceilometer",
-            "enable": false,
-            "hide": false,
-            "iconColor": "#616161",
-            "limit": 100,
-            "name": "Compute Instance",
-            "query": "labels.project_id: $project",
-            "showIn": 0,
-            "tags": [],
-            "tagsField": "labels.display_name",
-            "textField": "labels.state",
-            "timeField": "generated",
-            "type": "tags"
           }
         ]
       },
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 11,
-      "iteration": 1632949124800,
+      "id": 4,
+      "iteration": 1695785660982,
       "links": [],
       "panels": [
         {
@@ -105,7 +90,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "exemplar": true,
@@ -136,6 +121,7 @@ spec:
                 "fillOpacity": 10,
                 "gradientMode": "none",
                 "hideFrom": {
+                  "graph": false,
                   "legend": false,
                   "tooltip": false,
                   "viz": false
@@ -147,14 +133,7 @@ spec:
                   "type": "linear"
                 },
                 "showPoints": "never",
-                "spanNulls": true,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
+                "spanNulls": true
               },
               "links": [],
               "mappings": [],
@@ -190,6 +169,9 @@ spec:
             },
             "tooltip": {
               "mode": "single"
+            },
+            "tooltipOptions": {
+              "mode": "single"
             }
           },
           "pluginVersion": "8.0.4",
@@ -223,6 +205,7 @@ spec:
                 "fillOpacity": 10,
                 "gradientMode": "none",
                 "hideFrom": {
+                  "graph": false,
                   "legend": false,
                   "tooltip": false,
                   "viz": false
@@ -234,14 +217,7 @@ spec:
                   "type": "linear"
                 },
                 "showPoints": "never",
-                "spanNulls": true,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
+                "spanNulls": true
               },
               "links": [],
               "mappings": [],
@@ -276,6 +252,9 @@ spec:
               "placement": "bottom"
             },
             "tooltip": {
+              "mode": "single"
+            },
+            "tooltipOptions": {
               "mode": "single"
             }
           },
@@ -390,7 +369,7 @@ spec:
           "options": {
             "showHeader": true
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "exemplar": true,
@@ -442,6 +421,7 @@ spec:
                 "fillOpacity": 50,
                 "gradientMode": "opacity",
                 "hideFrom": {
+                  "graph": false,
                   "legend": false,
                   "tooltip": false,
                   "viz": false
@@ -453,14 +433,7 @@ spec:
                   "type": "linear"
                 },
                 "showPoints": "never",
-                "spanNulls": true,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
+                "spanNulls": true
               },
               "links": [],
               "mappings": [],
@@ -496,6 +469,9 @@ spec:
               "placement": "bottom"
             },
             "tooltip": {
+              "mode": "single"
+            },
+            "tooltipOptions": {
               "mode": "single"
             }
           },
@@ -555,7 +531,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -621,177 +597,6 @@ spec:
           }
         },
         {
-          "datasource": "es_ceilometer",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "custom": {
-                "align": null,
-                "displayMode": "auto"
-              },
-              "decimals": 2,
-              "displayName": "",
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "short"
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "generated"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Time"
-                  },
-                  {
-                    "id": "unit",
-                    "value": "time: HH:mm"
-                  },
-                  {
-                    "id": "custom.align",
-                    "value": "center"
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 60
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "labels.state"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 120
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "State"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "labels.display_name"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Display Name"
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 200
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "labels.service"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Service"
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 200
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 11,
-            "w": 8,
-            "x": 0,
-            "y": 11
-          },
-          "id": 18,
-          "options": {
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.0.6",
-          "targets": [
-            {
-              "bucketAggs": [
-                {
-                  "field": "event_type",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": 1,
-                    "order": "desc",
-                    "orderBy": "_term",
-                    "size": "10"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "field": "select field",
-                  "id": "1",
-                  "meta": {},
-                  "settings": {},
-                  "type": "logs"
-                }
-              ],
-              "query": "labels.project_id: $project",
-              "refId": "A",
-              "timeField": "generated"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Recent Events",
-          "transformations": [
-            {
-              "id": "seriesToRows",
-              "options": {
-                "reducers": []
-              }
-            },
-            {
-              "id": "filterFieldsByName",
-              "options": {
-                "include": {
-                  "names": [
-                    "generated",
-                    "labels.service",
-                    "labels.state",
-                    "labels.display_name"
-                  ]
-                }
-              }
-            }
-          ],
-          "type": "table"
-        },
-        {
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
@@ -830,7 +635,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -940,7 +745,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1050,7 +855,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1160,7 +965,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1232,8 +1037,8 @@ spec:
           }
         }
       ],
-      "refresh": "30s",
-      "schemaVersion": 30,
+      "refresh": "1m",
+      "schemaVersion": 27,
       "style": "dark",
       "tags": [],
       "templating": {
@@ -1258,7 +1063,11 @@ spec:
             "regex": "/.+-(.+)-coll-meter/",
             "skipUrlSync": false,
             "sort": 1,
-            "type": "query"
+            "tagValuesQuery": "",
+            "tags": [],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
           },
           {
             "allValue": null,
@@ -1281,6 +1090,7 @@ spec:
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
+            "tags": [],
             "tagsQuery": "",
             "type": "query",
             "useTags": false
@@ -1288,7 +1098,7 @@ spec:
         ]
       },
       "time": {
-        "from": "now-24h",
+        "from": "now-1h",
         "to": "now"
       },
       "timepicker": {
@@ -1308,5 +1118,5 @@ spec:
       "timezone": "",
       "title": "Virtual Machine View",
       "uid": "JJzvn8mnz",
-      "version": 3
+      "version": 4
     }

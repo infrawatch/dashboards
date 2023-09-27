@@ -7,9 +7,9 @@ metadata:
   namespace: service-telemetry
 spec:
   name: rhos-cloud-dashboard.json
-  plugins: 
+  plugins:
     - name: grafana-polystat-panel
-      version: "1.2.2"
+      version: "2.1.2"
   name: rhos-cloud-dashboard.json
   json: |
     {
@@ -32,7 +32,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 3,
-      "iteration": 1633009062196,
+      "iteration": 1695784064538,
       "links": [
         {
           "asDropdown": false,
@@ -67,6 +67,10 @@ spec:
           },
           "dataFormat": "tsbuckets",
           "datasource": "STFPrometheus",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
           "gridPos": {
             "h": 8,
             "w": 15,
@@ -216,7 +220,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -310,7 +314,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -429,7 +433,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "alias": "",
@@ -524,7 +528,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "alias": "",
@@ -619,7 +623,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "alias": "",
@@ -714,7 +718,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "alias": "",
@@ -809,7 +813,7 @@ spec:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "targets": [
             {
               "alias": "",
@@ -895,7 +899,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -991,7 +995,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1085,7 +1089,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1181,7 +1185,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1276,7 +1280,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1372,7 +1376,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1467,7 +1471,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1563,7 +1567,7 @@ spec:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "7.5.15",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1642,6 +1646,10 @@ spec:
           ],
           "datasource": "STFPrometheus",
           "description": "Click instance for drill down view",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
           "gridPos": {
             "h": 5,
             "w": 24,
@@ -1735,8 +1743,8 @@ spec:
           ]
         }
       ],
-      "refresh": "15m",
-      "schemaVersion": 30,
+      "refresh": "1m",
+      "schemaVersion": 27,
       "style": "dark",
       "tags": [
         "cloud-dashboards"
@@ -1763,7 +1771,11 @@ spec:
             "regex": "/.+-(.+)-coll-meter/",
             "skipUrlSync": false,
             "sort": 0,
-            "type": "query"
+            "tagValuesQuery": "",
+            "tags": [],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
           },
           {
             "allValue": null,
@@ -1791,6 +1803,7 @@ spec:
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
+            "tags": [],
             "tagsQuery": "",
             "type": "query",
             "useTags": false
@@ -1919,7 +1932,7 @@ spec:
         ]
       },
       "time": {
-        "from": "now-24h",
+        "from": "now-1h",
         "to": "now"
       },
       "timepicker": {
@@ -1939,5 +1952,5 @@ spec:
       "timezone": "",
       "title": "Cloud View",
       "uid": "IHqhpjPZz",
-      "version": 14
+      "version": 15
     }
