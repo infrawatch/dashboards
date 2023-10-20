@@ -1072,7 +1072,7 @@ spec:
           {
             "allValue": null,
             "datasource": null,
-            "definition": "label_values(ceilometer_cpu{service=~\".+-$clouds-.+\"}, project)",
+            "definition": "ceilometer_cpu{service=~".+-$clouds-.+"}",
             "description": null,
             "error": null,
             "hide": 0,
@@ -1082,11 +1082,11 @@ spec:
             "name": "project",
             "options": [],
             "query": {
-              "query": "label_values(ceilometer_cpu{service=~\".+-$clouds-.+\"}, project)",
+              "query": "ceilometer_cpu{service=~".+-$clouds-.+"}",
               "refId": "StandardVariableQuery"
             },
             "refresh": 1,
-            "regex": "",
+            "regex": "/project_name="(?<text>[^"]+)|project="(?<value>[^"]+)/g",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",

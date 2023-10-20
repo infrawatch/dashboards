@@ -1595,7 +1595,7 @@ spec:
               "value": "$__all"
             },
             "datasource": "STFPrometheus",
-            "definition": "label_values(ceilometer_cpu{service=~\".+-$clouds-.+\"},project)",
+            "definition": "ceilometer_cpu{service=~\".+-$clouds-.+\"}",
             "description": null,
             "error": null,
             "hide": 2,
@@ -1605,11 +1605,11 @@ spec:
             "name": "projects",
             "options": [],
             "query": {
-              "query": "label_values(ceilometer_cpu{service=~\".+-$clouds-.+\"},project)",
+              "query": "ceilometer_cpu{service=~\".+-$clouds-.+\"}",
               "refId": "StandardVariableQuery"
             },
             "refresh": 2,
-            "regex": "",
+            "regex": "/project_name="(?<text>[^"]+)|project="(?<value>[^"]+)/g",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
