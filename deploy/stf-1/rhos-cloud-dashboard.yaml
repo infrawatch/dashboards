@@ -9,7 +9,7 @@ spec:
   name: rhos-cloud-dashboard.json
   plugins:
     - name: grafana-polystat-panel
-      version: "2.1.2"
+      version: "1.2.11"
   name: rhos-cloud-dashboard.json
   json: |
     {
