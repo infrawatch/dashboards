@@ -1,4 +1,8 @@
-# Service Telemetry Dashboards
+# Service Telemetry Dashboards (read-only)
+
+**NOTE:** _Going forward, dashboards will be managed by the 
+[Service Telemetry Operator](https://github.com/infrawatch/service-telemetry-operator) 
+and changes should land there. This repository is now read-only._
 
 Dashboards for use with Service Telemetry Framework. These dashboards can be
 loaded into a Grafana instance connected to backend data sources exposed by the
